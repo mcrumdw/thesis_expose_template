@@ -1,0 +1,545 @@
+% ============================================================
+%  EXPOSÉ TEMPLATE — Single-File Version
+%  Faculty of Computer Science
+% ============================================================
+%
+%  HOW TO USE THIS TEMPLATE
+%  ─────────────────────────────────────────────────────────
+%  1. Replace every placeholder in [SQUARE BRACKETS] with
+%     your actual information.
+%  2. Guidance notes are shown in teal italics in the PDF
+%     (produced by the \guidance{} command).  Delete or
+%     overwrite them as you fill in your own text.
+%  3. Keep the images/ folder and literature.bib next to
+%     this file when compiling.
+%  4. Compile with:  pdflatex → bibtex → pdflatex → pdflatex
+% ============================================================
+
+% ─────────────────────────────────────────────────────────
+%  PREAMBLE
+% ─────────────────────────────────────────────────────────
+\documentclass[
+    a4paper,
+    11pt,
+    DIV=11,
+    bigheadings,
+    idxtotoc,
+    listof=totoc,
+    bibtotoc,
+    halfparskip,
+    cleardoubleempty,
+    openright,
+    oneside
+]{scrartcl}
+
+% ── Language & encoding ──────────────────────────────────
+\usepackage[ngerman, english]{babel}   % change first lang to set default
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ── Layout ───────────────────────────────────────────────
+\usepackage{geometry}
+\geometry{a4paper, left=30mm, right=20mm}
+\usepackage{setspace}
+\usepackage{blindtext}
+\usepackage{layout}
+\setlength{\headsep}{10mm}
+\setlength{\footskip}{15mm}
+\setlength{\textheight}{235mm}
+
+% ── Graphics ─────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+
+% ── Tables ───────────────────────────────────────────────
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{booktabs}
+
+% ── Colour palette ───────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\usepackage{color}
+\definecolor{haw_mag}{rgb}{0,0.112,0.47}        % THI blue – headings
+\definecolor{guidancecolor}{HTML}{0D9488}        % teal – guidance text
+\definecolor{barblue}{HTML}{3B82F6}
+\definecolor{bargreen}{HTML}{22C55E}
+\definecolor{barorange}{HTML}{F59E0B}
+\definecolor{barpurple}{HTML}{8B5CF6}
+\definecolor{barred}{HTML}{EF4444}
+\definecolor{barteal}{HTML}{14B8A6}
+\definecolor{linkgray}{HTML}{64748B}
+\definecolor{gridcolor}{HTML}{E2E8F0}
+\definecolor{tab_1}{RGB}{85,128,214}
+\definecolor{tab_2}{RGB}{230,230,230}
+
+% ── Heading colours ──────────────────────────────────────
+\addtokomafont{section}{\color{haw_mag}\rmfamily}
+\addtokomafont{subsection}{\color{haw_mag}\rmfamily}
+\addtokomafont{subsubsection}{\color{haw_mag}\rmfamily}
+\addtokomafont{paragraph}{\color{haw_mag}\rmfamily}
+\addtokomafont{subparagraph}{\rmfamily}
+
+% ── Hyperlinks ───────────────────────────────────────────
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[
+    pdfborder={0 0 0},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=red
+]{hyperref}
+
+% ── Bibliography ─────────────────────────────────────────
+\usepackage[numbers]{natbib}
+
+% ── PDF inclusion ────────────────────────────────────────
+\usepackage{pdfpages}
+
+% ── Gantt chart ──────────────────────────────────────────
+\usepackage{pgfgantt}
+
+% ── Glossary ─────────────────────────────────────────────
+\usepackage[toc]{glossaries}
+\makeglossaries
+
+% ── Header / footer ──────────────────────────────────────
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ohead{\pagemark}
+\ihead{\ifthispageodd{\leftmark}{\rightmark}}
+\setheadsepline{0.4pt}
+\setkomafont{pagehead}{\normalfont}
+\setfootsepline{0.4pt}
+\setkomafont{pagefoot}{\normalfont}
+\ifoot{\footnotesize{[Your Name]}}
+\ofoot{\footnotesize{Exposé}}
+
+% ── Custom page style (used on front-matter pages) ───────
+\defpagestyle{myPageStyle}{
+    (0pt,0pt)
+    {\hfill\pagemark}{\hfill\pagemark}{\hfill\pagemark}
+    (0pt,0pt)
+}{
+    {(\textwidth,0.4pt)
+    \footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
+    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
+    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
+    (0pt,0pt)
+}
+
+% ── Guidance helper command ───────────────────────────────
+%  Renders placeholder instructions in teal italics.
+%  Delete \guidance{...} blocks when you fill in real text.
+\newcommand{\guidance}[1]{%
+    \begin{quote}
+        \itshape\color{guidancecolor}\small #1
+    \end{quote}
+}
+
+% ─────────────────────────────────────────────────────────
+%  GLOSSARY ENTRIES  (add / remove as needed)
+% ─────────────────────────────────────────────────────────
+\newglossaryentry{ABS}{name={ABS},   description={Antiblockiersystem}}
+\newglossaryentry{LCD}{name={LCD},   description={Liquid Crystal Display}}
+\newglossaryentry{HUD}{name={HUD},   description={Head-up-Display}}
+\newglossaryentry{HMI}{name={HMI},   description={Human Machine Interface}}
+\newglossaryentry{ADAS}{name={ADAS}, description={Advanced Driver Assistance Systems}}
+\newglossaryentry{ACC}{name={ACC},   description={Adaptive Cruise Control}}
+\newglossaryentry{SAE}{name={SAE},   description={Society for Automobile Engineers}}
+\newglossaryentry{LED}{name={LED},   description={Light-emitting diode}}
+
+% ─────────────────────────────────────────────────────────
+%  DOCUMENT BEGIN
+% ─────────────────────────────────────────────────────────
+\begin{document}
+
+\shorthandoff{"}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+
+% ══════════════════════════════════════════════════════════
+%  TITLE PAGE
+% ══════════════════════════════════════════════════════════
+\newgeometry{textheight=0.9\paperheight, textwidth=0.76\paperwidth,
+             left=30mm, right=20mm}
+
+\begin{titlepage}
+
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.4\textwidth]{images/thiRGB.jpg}
+    \end{figure}
+
+    \begin{center}
+        \hrulefill
+    \end{center}
+
+    \begin{center}
+        \vspace{1cm}
+        \huge\textbf{Exposé}\\[2.5em]
+        \normalsize
+            in the [DEGREE PROGRAM]\\
+            Faculty of Computer Science\\[7em]
+        \normalsize
+            Thesis Title\\[1em]
+        \Large\textbf{[YOUR THESIS TITLE HERE]}
+    \end{center}
+
+    \vfill
+
+    \begin{tabular}{ll}
+        First and Last Name: & \textbf{[Your Full Name]}        \\[1em]
+        Student ID:          & [XXXXXXXX]                       \\[3em]
+        First Supervisor:    & Prof.\,Dr.\ [Supervisor Name]    \\[1em]
+        Second Supervisor:   & [TBD]                            \\[1em]
+        Submission Date:     & [DD.MM.YYYY]                     \\
+    \end{tabular}
+
+\end{titlepage}
+
+\restoregeometry
+
+% ─────────────────────────────────────────────────────────
+%  FRONT MATTER
+% ─────────────────────────────────────────────────────────
+\pagenumbering{Roman}
+\thispagestyle{myPageStyle}
+\tableofcontents
+\cleardoublepage
+
+% ─────────────────────────────────────────────────────────
+%  MAIN CONTENT
+% ─────────────────────────────────────────────────────────
+\pagenumbering{arabic}
+\thispagestyle{myPageStyle}
+
+% ══════════════════════════════════════════════════════════
+%  1  INTRODUCTION & MOTIVATION
+% ══════════════════════════════════════════════════════════
+\section{Introduction and Motivation}
+
+\guidance{%
+    \textbf{Purpose of this section:} Introduce the topic to a reader who is
+    knowledgeable in the field but unfamiliar with your specific problem.
+    Aim for 1--2 pages.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item \textbf{Context \& relevance} — Why does this topic matter today?
+              Mention industry trends, societal challenges, or scientific gaps
+              that make this research timely.
+        \item \textbf{Problem hook} — Describe a concrete situation or deficiency
+              that your work will address.  Use statistics or a recent event if
+              available.
+        \item \textbf{Scope statement} — Briefly state what the thesis will and
+              will \emph{not} cover.
+        \item \textbf{Structure overview} — One sentence per subsequent section
+              explaining how the exposé is organised.
+    \end{itemize}
+    \textbf{Tip:} Write this section last, once all other sections are complete.%
+}
+
+% ══════════════════════════════════════════════════════════
+%  2  PROBLEM STATEMENT & RESEARCH QUESTIONS
+% ══════════════════════════════════════════════════════════
+\section{Problem Statement and Research Questions}
+
+\guidance{%
+    \textbf{Purpose of this section:} Precisely articulate the gap, challenge,
+    or open question your thesis addresses.  Aim for 0.5--1 page.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item A concise statement (2--4 sentences) of the core problem.
+        \item An explanation of \emph{why} existing solutions are insufficient.
+        \item \textbf{Research questions (RQs)} — formulate 1--3 specific,
+              answerable questions.  Each RQ should be:
+              \begin{itemize}
+                  \item \emph{Specific}: addresses one concept at a time.
+                  \item \emph{Feasible}: answerable within the thesis timeline.
+                  \item \emph{Relevant}: directly linked to the problem.
+              \end{itemize}
+        \item Optionally, a research \textbf{hypothesis} if you have one.
+    \end{itemize}
+    \textbf{Tip:} Your RQs are the anchor for every other section — methodology,
+    evaluation criteria, and conclusions all flow from them.%
+}
+
+\begin{longtable}{p{0.3cm} p{0.8cm} p{12.7cm} p{0.5cm}}
+    & \textbf{RQ1} & [Write your first research question here.] & \\
+    & & & \\
+    & \textbf{RQ2} & [Write your second research question here.] & \\
+    & & & \\
+    & \textbf{RQ3} & [Optional: write a third research question, or delete this row.] & \\
+\end{longtable}
+
+% ══════════════════════════════════════════════════════════
+%  3  OBJECTIVES
+% ══════════════════════════════════════════════════════════
+\section{Objectives}
+
+\guidance{%
+    \textbf{Purpose of this section:} Translate your research questions into
+    concrete, measurable goals.  Aim for 0.5 pages.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item \textbf{Primary objective} — the single most important goal (maps
+              directly to your main RQ).
+        \item \textbf{Secondary objectives} — supporting goals (e.g., design an
+              artefact, conduct a user study, develop a framework).
+        \item Each objective should start with an action verb: \emph{design,
+              implement, evaluate, analyse, compare, develop, validate, \ldots}
+    \end{itemize}
+    \textbf{Tip:} Objectives are \emph{not} research questions.  An objective
+    describes what you will \emph{do}; an RQ asks what you want to
+    \emph{find out}.%
+}
+
+% ══════════════════════════════════════════════════════════
+%  4  RELATED WORK
+% ══════════════════════════════════════════════════════════
+\section{Related Work}
+
+\guidance{%
+    \textbf{Purpose of this section:} Demonstrate awareness of existing
+    literature and position your work relative to it.  Aim for 1--2 pages.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item \textbf{Search strategy} (brief) — which databases, keywords, and
+              date range you used (e.g., ACM Digital Library, IEEE Xplore,
+              Google Scholar; last 10 years).
+        \item \textbf{Thematic clusters} — group related papers by sub-topic,
+              not by chronology.  Use one subsection per cluster.
+        \item \textbf{Critical synthesis} — do not merely summarise each paper;
+              compare, contrast, and identify common limitations.
+        \item \textbf{Gap identification} — conclude with the specific gap your
+              thesis fills, explicitly referencing your RQs.
+    \end{itemize}
+    \textbf{Tip:} Every claim should be backed by a citation \cite{doe_example_2024}.
+    Aim for at least 10--15 sources in the exposé.%
+}
+
+\subsection{[Topic Cluster 1 — e.g., Existing Approaches]}
+
+\guidance{Summarise 3--5 papers that address the problem from one angle.
+Highlight their strengths and shared limitations.}
+
+\subsection{[Topic Cluster 2 — e.g., Relevant Techniques / Frameworks]}
+
+\guidance{Summarise 3--5 papers that provide methodological or technical
+foundations relevant to your work.}
+
+\subsection{[Topic Cluster 3 — e.g., Gaps \& Open Challenges]}
+
+\guidance{Synthesise the overall state of the art and clearly identify the
+gap your thesis addresses.  This subsection is the bridge to your problem
+statement.}
+
+% ══════════════════════════════════════════════════════════
+%  5  METHODOLOGY
+% ══════════════════════════════════════════════════════════
+\section{Methodology}
+
+\guidance{%
+    \textbf{Purpose of this section:} Describe \emph{how} you will answer your
+    research questions.  This is often the most critical section for
+    supervisors.  Aim for 1--2 pages.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item \textbf{Research design} — qualitative, quantitative, or mixed?
+              Empirical study, design science, systematic review, simulation, \ldots?
+        \item \textbf{Use case / study context} — the specific system, domain, or
+              dataset you will work with.
+        \item \textbf{Variables or evaluation criteria} — what you measure and
+              how (independent, dependent, control variables for experiments;
+              or evaluation criteria for design artefacts).
+        \item \textbf{Data collection} — surveys, interviews, logs, benchmarks,
+              public datasets, \ldots
+        \item \textbf{Analysis methods} — statistical tests, qualitative coding,
+              performance benchmarks, \ldots
+        \item \textbf{Validity considerations} — how you will ensure internal
+              and external validity, reliability, and ethical compliance.
+    \end{itemize}
+    \textbf{Tip:} Justify every methodological choice by linking it back to
+    your RQs.%
+}
+
+\subsection{Use Case Definition}
+
+\guidance{Describe the application domain, system, or dataset that will serve
+as the object of study.  Explain why this use case is appropriate for
+answering your RQs.  Include any relevant constraints (access, size,
+language, \ldots).}
+
+\subsection{Independent Variables}
+
+\guidance{List and define the variables (or design parameters) that you will
+deliberately manipulate or vary.  For each variable, state its possible
+values or levels.}
+
+\subsection{Dependent Variables}
+
+\guidance{List and define the outcomes you will measure.  For each dependent
+variable, specify the measurement instrument or metric (e.g., task completion
+time in seconds, SUS score 0--100, F1-score, \ldots).}
+
+\subsection{Procedure / Research Steps}
+
+\guidance{Provide a step-by-step overview of how the study or development work
+will be carried out — from setup and data collection through to analysis.
+A numbered list or small diagram works well here.}
+
+% ══════════════════════════════════════════════════════════
+%  6  EXPECTED CONTRIBUTIONS
+% ══════════════════════════════════════════════════════════
+\section{Expected Contributions and Results}
+
+\guidance{%
+    \textbf{Purpose of this section:} Communicate the anticipated value of your
+    thesis.  Aim for 0.5--1 page.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item \textbf{Scientific contribution} — new knowledge, a validated
+              model, a benchmark, an empirically tested framework, \ldots
+        \item \textbf{Practical / applied contribution} — a prototype, tool,
+              guideline, or design recommendation.
+        \item \textbf{Expected findings} — your educated hypothesis about what
+              you will discover (be honest about uncertainty; phrases like
+              \emph{``we expect that \ldots''} or \emph{``it is hypothesised
+              that \ldots''} are appropriate).
+        \item \textbf{Limitations} — acknowledge foreseeable constraints
+              (sample size, generalisation, time, \ldots).
+    \end{itemize}
+    \textbf{Tip:} Do not over-promise.  Reviewers value intellectual honesty
+    over grand claims.%
+}
+
+% ══════════════════════════════════════════════════════════
+%  7  WORK PLAN & SCHEDULE
+% ══════════════════════════════════════════════════════════
+\section{Work Plan and Schedule}
+
+\guidance{%
+    \textbf{Purpose of this section:} Demonstrate that the project is
+    feasible within the allotted time.  The Gantt chart below covers a
+    typical 24-week (6-month) thesis period — adjust dates and tasks to
+    match your actual timeline.\\[0.5em]
+    \textbf{What to include:}
+    \begin{itemize}
+        \item A Gantt chart (provided) showing phases, tasks, and milestones.
+        \item A short paragraph (3--5 sentences) summarising the phases and
+              any critical-path dependencies.
+        \item Key milestones: registration, mid-point check-in, submission.
+    \end{itemize}
+    \textbf{Tip:} Build in buffer time before the final submission — unforeseen
+    delays (data collection issues, feedback rounds) are the rule, not the
+    exception.%
+}
+
+\noindent
+\resizebox{\textwidth}{!}{%
+\begin{ganttchart}[
+    x unit=0.6cm,
+    y unit title=0.55cm,
+    y unit chart=0.6cm,
+    canvas/.append style={draw=none},
+    vgrid={*1{draw=gridcolor, thin}},
+    hgrid={*1{draw=gridcolor, thin}},
+    title/.style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize\color{black!70},
+    include title in canvas=false,
+    bar height=0.5,
+    bar label font=\footnotesize,
+    bar/.append style={draw=none, fill=barblue},
+    bar incomplete/.append style={fill=barblue!30},
+    group/.append style={draw=none, fill=black!70},
+    group left shift=0,
+    group right shift=0,
+    group height=.3,
+    group peaks height=0,
+    group label font=\bfseries\footnotesize,
+    milestone/.append style={fill=barred, draw=barred, rounded corners=1pt, xscale=0.7},
+    milestone label font=\tiny\itshape,
+    link/.style={-latex, thick, draw=linkgray!60},
+    link bulge=4,
+]{1}{24}
+
+    \gantttitle{Thesis Schedule in Weeks}{24} \\
+    \gantttitlelist{1,...,24}{1} \\
+
+    % ── Phase 1 ────────────────────────────────────────────
+    \ganttgroup{Phase 1: Topic \& Orientation}{1}{4} \\
+    \ganttbar[bar/.append style={fill=barblue}]{Topic exploration \& selection}{1}{2} \\
+    \ganttbar[bar/.append style={fill=barblue}]{Initial supervisor meetings}{1}{3} \\
+    \ganttbar[bar/.append style={fill=barblue}]{Define research question \& scope}{2}{4} \\
+    \ganttmilestone{Thesis registered}{4} \\
+
+    % ── Phase 2 ────────────────────────────────────────────
+    \ganttgroup{Phase 2: Literature Review}{4}{9} \\
+    \ganttbar[bar/.append style={fill=barpurple}]{Systematic literature search}{4}{6} \\
+    \ganttbar[bar/.append style={fill=barpurple}]{Reading \& annotating sources}{5}{8} \\
+    \ganttbar[bar/.append style={fill=barpurple}]{Write literature review chapter}{7}{9} \\
+
+    % ── Phase 3 ────────────────────────────────────────────
+    \ganttgroup{Phase 3: Methodology \& Research}{8}{15} \\
+    \ganttbar[bar/.append style={fill=barteal}]{Develop methodology / framework}{8}{10} \\
+    \ganttbar[bar/.append style={fill=barteal}]{Data collection / experimentation}{10}{13} \\
+    \ganttbar[bar/.append style={fill=barteal}]{Data analysis \& interpretation}{13}{15} \\
+    \ganttmilestone{Midpoint check-in with supervisor}{12} \\
+
+    % ── Phase 4 ────────────────────────────────────────────
+    \ganttgroup{Phase 4: Writing}{9}{21} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Write methodology chapter}{9}{12} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Write results chapter}{14}{17} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Write discussion \& conclusion}{17}{19} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Write introduction \& abstract}{19}{21} \\
+
+    % ── Phase 5 ────────────────────────────────────────────
+    \ganttgroup{Phase 5: Revision \& Submission}{20}{24} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Self-revision \& proofreading}{20}{21} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Supervisor feedback round}{21}{22} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Final revisions \& formatting}{22}{23} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Printing \& binding}{23}{24} \\
+    \ganttmilestone{Thesis submitted}{24} \\
+
+    % ── Dependency links ───────────────────────────────────
+    \ganttlink{elem3}{elem4}
+    \ganttlink{elem4}{elem5}
+    \ganttlink{elem6}{elem7}
+    \ganttlink{elem8}{elem9}
+    \ganttlink{elem9}{elem10}
+    \ganttlink{elem10}{elem15}
+    \ganttlink{elem15}{elem16}
+    \ganttlink{elem16}{elem17}
+    \ganttlink{elem18}{elem19}
+    \ganttlink{elem20}{elem21}
+    \ganttlink{elem21}{elem22}
+
+\end{ganttchart}
+}% end resizebox
+
+% ─────────────────────────────────────────────────────────
+%  BACK MATTER
+% ─────────────────────────────────────────────────────────
+\pagenumbering{Roman}
+\setcounter{page}{6}
+
+% ── Glossary ─────────────────────────────────────────────
+\thispagestyle{myPageStyle}
+\glssetwidest{ADAS}
+\setglossarystyle{alttree}
+\printglossary[title=List of Abbreviations, toctitle=List of Abbreviations]
+\cleardoublepage
+
+% ── Bibliography ─────────────────────────────────────────
+\thispagestyle{myPageStyle}
+\bibliographystyle{dinat}
+\renewcommand{\refname}{Bibliography}
+\bibliography{literature}
+\cleardoublepage
+
+\shorthandon{"}
+
+\end{document}

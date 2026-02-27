@@ -1,0 +1,16 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction and Motivation}{1}{section.1}%
+\contentsline {section}{\numberline {2}Problem Statement and Research Questions}{1}{section.2}%
+\contentsline {section}{\numberline {3}Objectives}{2}{section.3}%
+\contentsline {section}{\numberline {4}Related Work}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}[Topic Cluster 1 — e.g., Existing Approaches]}{2}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}[Topic Cluster 2 — e.g., Relevant Techniques / Frameworks]}{2}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}[Topic Cluster 3 — e.g., Gaps \& Open Challenges]}{3}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Methodology}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Use Case Definition}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Independent Variables}{3}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Dependent Variables}{3}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Procedure / Research Steps}{VI}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Expected Contributions and Results}{VI}{section.6}%
+\contentsline {section}{\numberline {7}Work Plan and Schedule}{VI}{section.7}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -247,32 +247,29 @@
 % ══════════════════════════════════════════════════════════
 \section{Problem Statement and Research Questions}
 
-\guidance{%
-    \textbf{Purpose of this section:} Precisely articulate the gap, challenge,
-    or open question your thesis addresses.  Aim for 0.5--1 page.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item A concise statement (2--4 sentences) of the core problem.
-        \item An explanation of \emph{why} existing solutions are insufficient.
-        \item \textbf{Research questions (RQs)} — formulate 1--3 specific,
-              answerable questions.  Each RQ should be:
-              \begin{itemize}
-                  \item \emph{Specific}: addresses one concept at a time.
-                  \item \emph{Feasible}: answerable within the thesis timeline.
-                  \item \emph{Relevant}: directly linked to the problem.
-              \end{itemize}
-        \item Optionally, a research \textbf{hypothesis} if you have one.
-    \end{itemize}
-    \textbf{Tip:} Your RQs are the anchor for every other section — methodology,
-    evaluation criteria, and conclusions all flow from them.%
-}
+In-car voice assistants are moving from fixed command grammars to agents built on large language models (LLMs) that interpret free-form requests and act on vehicle functions through tool calls \cite{Alvarez26Do,Kirmayr26CAR}.
+Whether such agents serve drivers well remains unclear for two reasons.\glsadd{LLM}
+
+First, existing evaluations lack a human reference point.
+Benchmarks test in-car LLM agents against simulated users without any driving task, and even frontier models complete fewer than half of ambiguous requests consistently \cite{Kirmayr26CAR}.
+User studies with real drivers compare LLM agents with scripted agents or with no agent at all \cite{Bond26ChatGPT,Cockram26Small}.
+Neither line of work shows how far an LLM assistant falls short of a competent human assistant who has the same vehicle functions.
+This difference matters beyond task success, because effortful dialogues go together with frustration and less stable lane keeping \cite{Liu26Affective}.
+
+Second, the evidence comes almost entirely from English- or Chinese-speaking drivers.
+Multilingual benchmarks show that tool-calling agents lose performance outside English, often because non-English words end up in parameters that expect fixed English values \cite{Luo26Lost,Hofman25MAPS}.
+No evaluation of a tool-using in-car agent with German-speaking drivers exists.
+The only in-vehicle data on German command phrasing comes from a pilot study in which German-language sessions reported the highest workload \cite{Alvarez26Do}.
+
+The thesis therefore compares a tool-using LLM assistant with a human Wizard-of-Oz (WoZ) assistant who has the same tools and instructions, with German-speaking drivers in a driving simulator.\glsadd{WoZ}
+Three research questions guide the work:
 
 \begin{longtable}{p{0.3cm} p{0.8cm} p{12.7cm} p{0.5cm}}
-    & \textbf{RQ1} & [Write your first research question here.] & \\
+    & \textbf{RQ1} & To what extent does an LLM-based in-car assistant differ from a human assistant with the same tools in task success, dialogue efficiency and error recovery when German-speaking drivers make in-cabin requests? & \\
     & & & \\
-    & \textbf{RQ2} & [Write your second research question here.] & \\
+    & \textbf{RQ2} & How does the type of assistant (LLM vs.\ human) affect drivers' lateral and longitudinal vehicle control, workload, perceived usability and trust? & \\
     & & & \\
-    & \textbf{RQ3} & [Optional: write a third research question, or delete this row.] & \\
+    & \textbf{RQ3} & Which request types and German-language features (compound nouns, formal and informal address, English loanwords, place names, dialect) account for failures of the LLM assistant on tasks the human assistant completes? & \\
 \end{longtable}
 
 % ══════════════════════════════════════════════════════════

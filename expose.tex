@@ -114,7 +114,7 @@
 \setkomafont{pagehead}{\normalfont}
 \setfootsepline{0.4pt}
 \setkomafont{pagefoot}{\normalfont}
-\ifoot{\footnotesize{[Your Name]}}
+\ifoot{\footnotesize{Makram Daou}}
 \ofoot{\footnotesize{Exposé}}
 
 % ── Custom page style (used on front-matter pages) ───────
@@ -124,9 +124,9 @@
     (0pt,0pt)
 }{
     {(\textwidth,0.4pt)
-    \footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
-    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
-    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
+    \footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
+    {\footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
+    {\footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
     (0pt,0pt)
 }
 
@@ -142,14 +142,13 @@
 % ─────────────────────────────────────────────────────────
 %  GLOSSARY ENTRIES  (add / remove as needed)
 % ─────────────────────────────────────────────────────────
-\newglossaryentry{ABS}{name={ABS},   description={Antiblockiersystem}}
-\newglossaryentry{LCD}{name={LCD},   description={Liquid Crystal Display}}
-\newglossaryentry{HUD}{name={HUD},   description={Head-up-Display}}
-\newglossaryentry{HMI}{name={HMI},   description={Human Machine Interface}}
-\newglossaryentry{ADAS}{name={ADAS}, description={Advanced Driver Assistance Systems}}
-\newglossaryentry{ACC}{name={ACC},   description={Adaptive Cruise Control}}
-\newglossaryentry{SAE}{name={SAE},   description={Society for Automobile Engineers}}
-\newglossaryentry{LED}{name={LED},   description={Light-emitting diode}}
+\newglossaryentry{LLM}{name={LLM},       description={Large Language Model}}
+\newglossaryentry{WoZ}{name={WoZ},       description={Wizard of Oz}}
+\newglossaryentry{HMI}{name={HMI},       description={Human-Machine Interface}}
+\newglossaryentry{TTS}{name={TTS},       description={Text-to-Speech}}
+\newglossaryentry{SDLP}{name={SDLP},     description={Standard Deviation of Lateral Position}}
+\newglossaryentry{TLX}{name={NASA-TLX},  description={NASA Task Load Index}}
+\newglossaryentry{UEQS}{name={UEQ-S},    description={User Experience Questionnaire, short version}}
 
 % ─────────────────────────────────────────────────────────
 %  DOCUMENT BEGIN
@@ -182,21 +181,22 @@
         \vspace{1cm}
         \huge\textbf{Exposé}\\[2.5em]
         \normalsize
-            in the [DEGREE PROGRAM]\\
+            in the Bachelor's Program User Experience Design (B.Sc.)\\
             Faculty of Computer Science\\[7em]
         \normalsize
             Thesis Title\\[1em]
-        \Large\textbf{[YOUR THESIS TITLE HERE]}
+        \Large\textbf{Can an LLM Match a Human Co-Driver?}\\[0.6em]
+        \large Comparing In-Car Voice Assistance for German-Speaking Drivers in a Driving Simulator
     \end{center}
 
     \vfill
 
     \begin{tabular}{ll}
-        First and Last Name: & \textbf{[Your Full Name]}        \\[1em]
-        Student ID:          & [XXXXXXXX]                       \\[3em]
-        First Supervisor:    & Prof.\,Dr.\ [Supervisor Name]    \\[1em]
+        First and Last Name: & \textbf{Makram Daou}        \\[1em]
+        Student ID:          & 00110695                       \\[3em]
+        First Supervisor:    & Prof.\,Dr.\ Ignacio Alvarez    \\[1em]
         Second Supervisor:   & [TBD]                            \\[1em]
-        Submission Date:     & [DD.MM.YYYY]                     \\
+        Submission Date:     & [TODO: submission date]                     \\
     \end{tabular}
 
 \end{titlepage}
@@ -528,7 +528,7 @@ A numbered list or small diagram works well here.}
 
 % ── Glossary ─────────────────────────────────────────────
 \thispagestyle{myPageStyle}
-\glssetwidest{ADAS}
+\glssetwidest{NASA-TLX}
 \setglossarystyle{alttree}
 \printglossary[title=List of Abbreviations, toctitle=List of Abbreviations]
 \cleardoublepage

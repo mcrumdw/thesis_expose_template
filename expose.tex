@@ -302,23 +302,23 @@ The results fall into three clusters.
 \subsection{LLM-Based Assistants with Real Drivers}
 
 Before LLMs, in-vehicle conversational agents were studied with scripted dialogue.
-\citet{Braun19Service} showed in a simulator study that the assistant's personality affects how much drivers like and trust it, and \citet{Large19Lessons} distilled design guidelines for automotive conversational interfaces from a series of Wizard-of-Oz studies in which a human spoke for the system.
+\citet{Braun19Service} showed in a real-traffic driving study with 55 participants that an assistant whose personality matches the driver's is rated as more likable and trustworthy, and \citet{Large19Lessons} distilled design guidelines for automotive conversational interfaces from a series of Wizard-of-Oz studies in which a human spoke for the system.
 Recent studies replace the script with an LLM.
 \citet{Choe26ChatGPT} had 40 drivers in a motion-based simulator experience no agent, a pre-scripted agent and a ChatGPT-based agent; the LLM agent produced more stable lane keeping and higher ratings of competence, affective trust and preference than the scripted one.
 \citet{Cockram26Small} ran 40 drivers on a test track in a conditionally automated vehicle and found that brief LLM-initiated conversations counteract passive fatigue, with acceptance depending on the driver type.
-\citet{Liu26Affective} measured 31 drivers interacting with a commercial voice assistant for navigation and showed with structural equation modelling that effortful dialogues (more turns, longer completion) go together with frustration, higher workload and poorer lateral control.
+\citet{Liu26Affective} measured 31 drivers entering navigation destinations with an AI-enabled voice assistant and showed with structural equation modelling that effortful dialogues (more turns, longer completion) go together with frustration, higher workload and poorer lateral control.
 \citet{Park26Evaluating} add a methodological warning from a multi-case study of lab evaluations of generative AI: non-deterministic output, unclear system boundaries and missing logs make such evaluations hard to interpret unless model versions, prompts and every turn are recorded.
 
 These studies agree that LLM assistants are preferred over scripted ones and that interaction effort matters for driving.
 They share three limitations.
 The comparator is a scripted system or no system, never a competent human, so none of them says how good an LLM assistant is in absolute terms.
-Only one of them \cite{Choe26ChatGPT} lets the agent act on vehicle functions, and none scores task success against ground-truth actions.
+In none of them does the LLM agent operate vehicle functions: the ChatGPT-based agent of \citet{Choe26ChatGPT} only converses, and the assistant in \citet{Liu26Affective} is not an LLM agent but a voice assistant for navigation entry; none scores task success against ground-truth actions.
 And all of them were run in English or Chinese with native speakers of those languages.
 
 \subsection{Agent Benchmarks, Multilingual Tool Calling and the Wizard of Oz}
 
 Agent benchmarks measure what the user studies leave out: task success against ground truth.
-$\tau$-bench \cite{Yao24Tau} introduced simulated users, domain tools and the Pass\textasciicircum{}$k$ metric for consistency across repeated trials, and found that even strong models solve fewer than half of the tasks reliably.
+$\tau$-bench \cite{Yao24Tau} introduced simulated users, domain tools and the Pass\textasciicircum{}$k$ metric for consistency across repeated trials, and found that even strong models succeed on fewer than half of the tasks and that success drops sharply when the same task must be solved in every one of several trials.
 CAR-bench \cite{Kirmayr26CAR} transfers this design to the car: 58 interconnected vehicle tools, tasks on navigation, charging, productivity and vehicle control, and two new task types that test whether an agent asks back when a request is ambiguous and admits when a function does not exist.
 Frontier reasoning models reach under 50\,\% consistent success on the disambiguation tasks and frequently act on requests they cannot fulfil.
 Both benchmarks evaluate the agent against a simulated user in English and without a driving task; they state what the agent gets wrong, not what a human in the same seat would have done.
@@ -330,7 +330,7 @@ WorlDrive's tools take English enumeration values and free-text names, so a Germ
 The PromptDrive pilot \cite{Alvarez26Do} is the only in-vehicle data on German command phrasing: 30 remote participants in Germany and Mexico spoke 383 single commands under three priming styles, with no agent responding; the German cell held seven participants.
 
 The Wizard of Oz is the established way to obtain a human reference for a dialogue system.
-\citet{Fraser91Simulating} and \citet{Dahlback93Wizard} laid out why and how a hidden human operator can stand in for a system, and \citet{Riek12Wizard} systematically reviewed Wizard-of-Oz studies in human--robot interaction and derived reporting guidelines on wizard training, consistency and disclosure that this thesis follows.
+\citet{Dahlback93Wizard} laid out why and how a hidden human operator can stand in for a natural-language system, and \citet{Riek12Wizard} reviewed 54 Wizard-of-Oz experiments in human--robot interaction, found that few reported wizard training, wizard errors or whether participants recognised the wizard, and proposed reporting guidelines that this thesis follows.
 In the automotive field the method has been used to design dialogue \cite{Large19Lessons}, not to benchmark an LLM.
 The closest comparison comes from robotics: \citet{Vrins24Wizard} let 27 participants brainstorm with a robot driven once by GPT-4 and once by a wizard, found similar ratings of social intelligence, a tentative preference for the LLM, and that participants reliably identified which robot the human controlled.
 That study measured perception rather than task success, and the robot had no tools to operate.
@@ -338,9 +338,9 @@ That study measured perception rather than task success, and the robot had no to
 \subsection{Driver Distraction, Workload and Measurement}
 
 Voice interaction is not free of cost for the driver.
-\citet{Strayer17Smartphone} measured the cognitive workload of three commercial intelligent personal assistants while driving and found moderate to high workload that differed between assistants, which shows that the quality of the assistant, not voice interaction as such, drives the cost to the driver.
+\citet{Strayer17Smartphone} measured the cognitive workload of three commercial intelligent personal assistants while driving and found workload above that of driving alone for all three, lower workload for the assistant that made fewer errors and needed less time per task, and costs that lingered after the interaction had ended.
 \citet{Liu26Affective} link this load to lane keeping: the standard deviation of lateral position (SDLP) and steering reversals rose with negative emotion after effortful dialogues, more than longitudinal measures did.
-The instruments for the subjective measures are established: NASA-TLX for workload \cite{Hart88NASA}, the UEQ-S for perceived usability and hedonic quality, developed with a German item set \cite{Schrepp17UEQS}, and for trust either the Trust in Automation scale of \citet{Jian00Trust} or the German-validated questionnaire of \citet{Koerber19Trust}.
+The instruments for the subjective measures are established: NASA-TLX for workload \cite{Hart88NASA}, the eight-item UEQ-S for pragmatic and hedonic quality, derived from the originally German UEQ \cite{Schrepp17UEQS}, and for trust either the Trust in Automation scale of \citet{Jian00Trust} or the questionnaire of \citet{Koerber19Trust}, published in German and English.
 
 \subsection{The Gap}
 
@@ -376,7 +376,7 @@ Both receive the same system prompt and tool descriptions, which is what makes t
 Each task carries ground-truth tool calls, an initial cabin state and an expected end state, from which the platform scores success automatically.
 
 Participants are about 32 licensed drivers who speak German as a first language or at an equivalent level, recruited at THI and in Ingolstadt; the student-heavy sample is named as a limitation.
-Sessions are held in the lab with a fixed simulator setup, manual driving on a rural road with light traffic, and a push-to-talk microphone, because voice activity detection was the main source of failed utterances in the PromptDrive pilot \cite{Alvarez26Do}.
+Sessions are held in the lab with a fixed simulator setup, manual driving on a rural road with light traffic, and a push-to-talk microphone, because in the PromptDrive pilot the open-microphone voice detection failed in noisy settings and produced overlong recordings \cite{Alvarez26Do}.
 Participants are told that they will use two versions of the assistant; that one of them is a human is disclosed in the debriefing, and the ethics application covers this deception.
 The LLM is one current model with tool calling and strong German performance; its name, version, system prompt, temperature and tool set are fixed in a WorlDrive agent profile before the pilot and not changed during data collection \cite{Park26Evaluating}.
 [TODO: name the model once chosen with Prof.\ Alvarez and confirm who carries the API costs.]

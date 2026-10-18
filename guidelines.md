@@ -123,6 +123,14 @@ Moved-out sources are not lost: park them in the Miro "Papers" section for the t
 - Expectations are stated as expectations ("it is expected that"), never as results.
 - No marketing language, no repetition across sections.
 
+### Citing: the finding first, the source last
+
+- Start each literature sentence with what was learned, not with who did it. Write "Effortful voice dialogues go together with less stable lane keeping~\cite{Liu26Affective}", not "Liu et al.~\cite{Liu26Affective} had 31 drivers complete navigation tasks".
+- Close the sentence that states the finding with the citation: `~\cite{key}` directly before the full stop, never after it.
+- Study details (sample size, setup, task) come after the finding and only when they help the reader judge it.
+- Authors are never the subject of a sentence. Name a model, instrument or benchmark when it is the thing being used (Körber's model, CAR-bench), not the people behind it. This overrides the skills' default of author-in-text citations (`@key`).
+- Don't repeat the same citation in back-to-back sentences; the follow-up sentence leans on context.
+
 ## Hand-in checklist
 
 - [ ] 1–3 SMART RQs, each mapped to at least one dependent variable
@@ -134,6 +142,7 @@ Moved-out sources are not lost: park them in the Miro "Papers" section for the t
 - [ ] Randomization, blinding, inclusion/exclusion stated
 - [ ] Consent, risk, data handling covered in Procedure
 - [ ] Exactly 10 references (max 10), all peer-reviewed or standards, all cited in text
+- [ ] Every literature sentence leads with the finding; citation at its end, before the full stop
 - [ ] Gantt chart with pilot, ethics approval and buffer
 - [ ] No `\guidance` blocks, no TODOs, compiles cleanly
 - [ ] Emailed as PDF to Prof. Alvarez, then book open-hours slot

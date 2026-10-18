@@ -291,12 +291,9 @@ Only peer-reviewed sources were retained.
 
 \subsection{LLM Assistants with Real Drivers}
 
-Choe et al.~\cite{Choe26ChatGPT} let 40 drivers in a motion-based simulator experience no agent, a scripted agent and a ChatGPT-based agent.
-The LLM agent produced more stable driving and higher ratings of competence, affective trust and preference than the scripted one.
-Liu et al.~\cite{Liu26Affective} had 31 drivers complete navigation tasks by voice while driving.
-Dialogues with more turns and longer completion times went with frustration, lower perceived control and less stable lane keeping and speed regulation.
-The PromptDrive pilot collected 383 spoken commands from 30 drivers in Germany and Mexico under three priming styles, with no agent responding \cite{Alvarez26Do}.
-Descriptively, its seven German-language sessions reported the highest workload of all cells.
+LLM-based agents can make driving steadier and are preferred over scripted ones: in a motion-based simulator, a ChatGPT-based agent led to more stable driving than a scripted agent or no agent, and 40 drivers rated it higher in competence, affective trust and preference than the scripted agent~\cite{Choe26ChatGPT}.
+Effortful voice dialogues carry a cost while driving: navigation tasks that needed more turns and longer completion times went with frustration, lower perceived control and less stable lane keeping and speed regulation~\cite{Liu26Affective}.
+First data on German command phrasing point to a higher burden: when drivers in Germany and Mexico spoke single commands in the PromptDrive pilot, with no agent responding, the seven German-language sessions reported the highest workload of all cells, though only descriptively~\cite{Alvarez26Do}.
 
 Together these studies show that LLM assistants are preferred and that dialogue effort matters for driving.
 They share three limits.
@@ -306,33 +303,28 @@ And apart from the seven PromptDrive sessions, none involved German-speaking dri
 
 \subsection{Tool-Using Agents and Language}
 
-CAR-bench measures what the user studies leave out \cite{Kirmayr26CAR}.
-It gives LLM agents 58 interconnected vehicle tools and scores each task against ground-truth actions.
-Two of its task types matter here: requests that need a clarifying question, and requests for functions the car does not have.
-Frontier models complete fewer than half of the ambiguous tasks consistently and often act on requests they cannot fulfil.
-The users are LLM-simulated, the language is English and there is no driving task.
+Even frontier LLM agents still fail on in-car requests that call for judgement: with 58 interconnected vehicle tools, they completed fewer than half of the tasks that need a clarifying question consistently, and they often acted on requests for functions the car does not have~\cite{Kirmayr26CAR}.
+These are the two task types this thesis adopts.
+Scored against ground-truth actions, the benchmark measures what the user studies leave out, but its users are LLM-simulated, its language is English and it involves no driving.
 
-Luo et al.~\cite{Luo26Lost} show why the driver's language matters for such agents.
-In Chinese, Hindi and Igbo, tool calling fails even when the model understands the intent and picks the right tool, mainly because parameter values are written in the user's language where the tool expects fixed English values.
-No inference-time fix fully restores English-level performance.
+Tool calling also degrades outside English: in Chinese, Hindi and Igbo, models fail even when they understand the intent and pick the right tool, mostly because they fill parameters with words in the user's language where the tool expects fixed English values~\cite{Luo26Lost}.
+No inference-time fix fully restored English-level performance.
 German was not tested, and neither was a car.
 
 \subsection{The Human as Reference}
 
 The Wizard-of-Oz method lets a hidden human play the system, which makes it the natural way to obtain a human reference.
-Vrins et al.~\cite{Vrins24Wizard} compared a robot driven by GPT-4 with the same robot driven by a wizard in a within-subject brainstorming study with 27 participants.
-Perceived social intelligence was similar, and participants reliably identified which robot the human controlled.
-That study measured perception only; the robot had no tools to operate.
-Riek~\cite{Riek12Wizard} reviewed 54 Wizard-of-Oz experiments and found that few reported wizard training, wizard errors or whether participants recognised the wizard.
-The reporting guidelines derived from that review make the human condition of this thesis reproducible.
+An LLM can already seem as socially intelligent as a human operator: in a brainstorming task, a robot driven by GPT-4 was rated as socially intelligent as the same robot driven by a wizard, although the 27 participants reliably identified which one the human controlled~\cite{Vrins24Wizard}.
+That comparison covered perception only; the robot had no tools to operate.
+Published Wizard-of-Oz studies often omit what a reader needs to judge the human condition: few of 54 reviewed experiments reported how the wizard was trained, which errors the wizard made, or whether participants noticed that a human was in control~\cite{Riek12Wizard}.
+Following the reporting guidelines from that review, this thesis documents the wizard's training and protocol, records the operator of each session, and checks at debriefing whether participants recognised the human, so that the human condition can be repeated.
 
 \subsection{Theoretical Lens: Trust in Automation}
 
-The thesis interprets its data through Körber's model of trust in automation \cite{Koerber19Trust}.
-The model treats trust as an attitude formed from beliefs about the system, chiefly its reliability and competence and its understandability and predictability.
-In its validation, an unreliable automated driving system received lower trust ratings, and trust predicted reliance in a simulator study.
-Applied here, failed tasks and unexpected replies should lower the perceived reliability and predictability of the LLM assistant and therefore trust.
-The lens shapes the measurement: trust is captured with the model's subscales rather than a single item, and the failure analysis of RQ3 is read as the source of perceived unreliability.
+Trust in automation is an attitude formed from beliefs about the system, chiefly its reliability and competence and its understandability and predictability~\cite{Koerber19Trust}.
+In the validation of this model, an unreliable automated driving system received lower trust ratings, and trust predicted reliance in a simulator study.
+The thesis uses Körber's model as its lens: failed tasks and unexpected replies should lower the perceived reliability and predictability of the LLM assistant and therefore trust.
+The lens also shapes the measurement: trust is captured with the model's subscales rather than a single item, and the failure analysis of RQ3 is read as the source of perceived unreliability.
 
 \subsection{The Gap}
 

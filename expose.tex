@@ -58,6 +58,7 @@
 \usepackage{multirow}
 \usepackage{colortbl}
 \usepackage{booktabs}
+\usepackage{array}
 
 % ── Colour palette ───────────────────────────────────────
 \usepackage[dvipsnames]{xcolor}
@@ -114,7 +115,7 @@
 \setkomafont{pagehead}{\normalfont}
 \setfootsepline{0.4pt}
 \setkomafont{pagefoot}{\normalfont}
-\ifoot{\footnotesize{[Your Name]}}
+\ifoot{\footnotesize{Makram Daou}}
 \ofoot{\footnotesize{Exposé}}
 
 % ── Custom page style (used on front-matter pages) ───────
@@ -124,9 +125,9 @@
     (0pt,0pt)
 }{
     {(\textwidth,0.4pt)
-    \footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
-    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
-    {\footnotesize{[Your Name]}\hfill\footnotesize{Exposé}}
+    \footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
+    {\footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
+    {\footnotesize{Makram Daou}\hfill\footnotesize{Exposé}}
     (0pt,0pt)
 }
 
@@ -142,14 +143,14 @@
 % ─────────────────────────────────────────────────────────
 %  GLOSSARY ENTRIES  (add / remove as needed)
 % ─────────────────────────────────────────────────────────
-\newglossaryentry{ABS}{name={ABS},   description={Antiblockiersystem}}
-\newglossaryentry{LCD}{name={LCD},   description={Liquid Crystal Display}}
-\newglossaryentry{HUD}{name={HUD},   description={Head-up-Display}}
-\newglossaryentry{HMI}{name={HMI},   description={Human Machine Interface}}
-\newglossaryentry{ADAS}{name={ADAS}, description={Advanced Driver Assistance Systems}}
-\newglossaryentry{ACC}{name={ACC},   description={Adaptive Cruise Control}}
-\newglossaryentry{SAE}{name={SAE},   description={Society for Automobile Engineers}}
-\newglossaryentry{LED}{name={LED},   description={Light-emitting diode}}
+\newglossaryentry{CEFR}{name={CEFR},     description={Common European Framework of Reference for Languages}}
+\newglossaryentry{GDPR}{name={GDPR},     description={General Data Protection Regulation}}
+\newglossaryentry{LLM}{name={LLM},       description={Large Language Model}}
+\newglossaryentry{TLX}{name={NASA-TLX},  description={NASA Task Load Index}}
+\newglossaryentry{SDLP}{name={SDLP},     description={Standard Deviation of Lateral Position}}
+\newglossaryentry{TTS}{name={TTS},       description={Text-to-Speech}}
+\newglossaryentry{UEQS}{name={UEQ-S},    description={User Experience Questionnaire, short version}}
+\newglossaryentry{WoZ}{name={WoZ},       description={Wizard of Oz}}
 
 % ─────────────────────────────────────────────────────────
 %  DOCUMENT BEGIN
@@ -182,21 +183,22 @@
         \vspace{1cm}
         \huge\textbf{Exposé}\\[2.5em]
         \normalsize
-            in the [DEGREE PROGRAM]\\
+            in the Bachelor's Program User Experience Design (B.Sc.)\\
             Faculty of Computer Science\\[7em]
         \normalsize
             Thesis Title\\[1em]
-        \Large\textbf{[YOUR THESIS TITLE HERE]}
+        \Large\textbf{Can an LLM Match a Human Co-Driver?}\\[0.6em]
+        \large Comparing In-Car Voice Assistance for German-Speaking Drivers in a Driving Simulator
     \end{center}
 
     \vfill
 
     \begin{tabular}{ll}
-        First and Last Name: & \textbf{[Your Full Name]}        \\[1em]
-        Student ID:          & [XXXXXXXX]                       \\[3em]
-        First Supervisor:    & Prof.\,Dr.\ [Supervisor Name]    \\[1em]
-        Second Supervisor:   & [TBD]                            \\[1em]
-        Submission Date:     & [DD.MM.YYYY]                     \\
+        First and Last Name: & \textbf{Makram Daou}              \\[1em]
+        Student ID:          & 00110695                          \\[3em]
+        First Supervisor:    & Prof.\,Dr.\ Ignacio Alvarez       \\[1em]
+        Second Supervisor:   & [TBD]                             \\[1em]
+        Submission Date:     & 29.01.2027                        \\
     \end{tabular}
 
 \end{titlepage}
@@ -222,228 +224,282 @@
 % ══════════════════════════════════════════════════════════
 \section{Introduction and Motivation}
 
-\guidance{%
-    \textbf{Purpose of this section:} Introduce the topic to a reader who is
-    knowledgeable in the field but unfamiliar with your specific problem.
-    Aim for 1--2 pages.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item \textbf{Context \& relevance} — Why does this topic matter today?
-              Mention industry trends, societal challenges, or scientific gaps
-              that make this research timely.
-        \item \textbf{Problem hook} — Describe a concrete situation or deficiency
-              that your work will address.  Use statistics or a recent event if
-              available.
-        \item \textbf{Scope statement} — Briefly state what the thesis will and
-              will \emph{not} cover.
-        \item \textbf{Structure overview} — One sentence per subsequent section
-              explaining how the exposé is organised.
-    \end{itemize}
-    \textbf{Tip:} Write this section last, once all other sections are complete.%
-}
+In-car voice assistants are moving from fixed command grammars to agents built on large language models (LLMs) that accept free-form requests \cite{Alvarez26Do}.
+Once such an agent can also call vehicle functions, a spoken sentence becomes an action in the car, such as a changed temperature, a new route or an opened window \cite{Kirmayr26CAR}.
+This promises an assistant that needs no learned vocabulary, but it raises a safety question: what happens when the agent gets it wrong while the driver is driving.
+Every misunderstanding costs repair dialogue, and effortful voice dialogues go together with frustration and less stable lane keeping \cite{Liu26Affective}.
+
+Current evidence answers this question only in parts.
+User studies show that drivers prefer an LLM agent to a scripted one \cite{Choe26ChatGPT}.
+Benchmarks show that tool-using agents still fail on ambiguous requests and on requests for functions the car does not have \cite{Kirmayr26CAR}.
+Neither tells how close an LLM assistant comes to a competent human who has the same vehicle functions, which is the reference point a designer actually aims for.
+The evidence also comes almost entirely from drivers who do not speak German, although tool calling is known to degrade outside English \cite{Luo26Lost}.
+
+The thesis therefore compares a tool-using LLM assistant with a human Wizard-of-Oz (WoZ) assistant who has the same tools and instructions, with German-speaking drivers in a driving simulator at Technische Hochschule Ingolstadt (THI).
+It covers one LLM, the German language, manual driving and in-cabin tasks for comfort, media, phone and navigation; it does not compare several LLMs, contrast German with English, test real traffic or automated driving, or design a new assistant.
+
+Section~2 states the problem and the research questions.
+They are turned into objectives in Section~3 and positioned in the literature in Section~4.
+The remaining sections describe the experiment (Section~5), the expected contributions (Section~6) and the schedule (Section~7).
 
 % ══════════════════════════════════════════════════════════
 %  2  PROBLEM STATEMENT & RESEARCH QUESTIONS
 % ══════════════════════════════════════════════════════════
 \section{Problem Statement and Research Questions}
 
-\guidance{%
-    \textbf{Purpose of this section:} Precisely articulate the gap, challenge,
-    or open question your thesis addresses.  Aim for 0.5--1 page.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item A concise statement (2--4 sentences) of the core problem.
-        \item An explanation of \emph{why} existing solutions are insufficient.
-        \item \textbf{Research questions (RQs)} — formulate 1--3 specific,
-              answerable questions.  Each RQ should be:
-              \begin{itemize}
-                  \item \emph{Specific}: addresses one concept at a time.
-                  \item \emph{Feasible}: answerable within the thesis timeline.
-                  \item \emph{Relevant}: directly linked to the problem.
-              \end{itemize}
-        \item Optionally, a research \textbf{hypothesis} if you have one.
-    \end{itemize}
-    \textbf{Tip:} Your RQs are the anchor for every other section — methodology,
-    evaluation criteria, and conclusions all flow from them.%
-}
+It is unknown how far a tool-using LLM in-car assistant falls short of a competent human assistant, and on which requests.
+Existing evaluations compare the LLM with a scripted agent, with no agent, or with a simulated user \cite{Choe26ChatGPT,Kirmayr26CAR}.
+They therefore cannot separate failures of the agent from tasks that are hard for anyone.
+German-speaking drivers have not been studied with such an agent, so it is also unknown whether German requests add failures of their own.
+Three research questions guide the work:
 
 \begin{longtable}{p{0.3cm} p{0.8cm} p{12.7cm} p{0.5cm}}
-    & \textbf{RQ1} & [Write your first research question here.] & \\
+    & \textbf{RQ1} & To what extent does a tool-using LLM assistant differ from a human assistant with the same tools in task success and dialogue efficiency when German-speaking drivers make in-cabin requests while driving? & \\
     & & & \\
-    & \textbf{RQ2} & [Write your second research question here.] & \\
+    & \textbf{RQ2} & How does the type of assistant (LLM or human) affect drivers' lane keeping, workload, perceived usability and trust? & \\
     & & & \\
-    & \textbf{RQ3} & [Optional: write a third research question, or delete this row.] & \\
+    & \textbf{RQ3} & Which request types and German-language features characterise the tasks that the LLM assistant fails but the human assistant completes? & \\
 \end{longtable}
+\addtocounter{table}{-1}
+
+Each question is answered with measures defined in Section~5 and within one study session per participant.
 
 % ══════════════════════════════════════════════════════════
 %  3  OBJECTIVES
 % ══════════════════════════════════════════════════════════
 \section{Objectives}
 
-\guidance{%
-    \textbf{Purpose of this section:} Translate your research questions into
-    concrete, measurable goals.  Aim for 0.5 pages.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item \textbf{Primary objective} — the single most important goal (maps
-              directly to your main RQ).
-        \item \textbf{Secondary objectives} — supporting goals (e.g., design an
-              artefact, conduct a user study, develop a framework).
-        \item Each objective should start with an action verb: \emph{design,
-              implement, evaluate, analyse, compare, develop, validate, \ldots}
-    \end{itemize}
-    \textbf{Tip:} Objectives are \emph{not} research questions.  An objective
-    describes what you will \emph{do}; an RQ asks what you want to
-    \emph{find out}.%
-}
+The primary objective is to \textbf{compare} a tool-using LLM assistant with a human assistant on identical German in-cabin tasks, using the human condition as the reference point for what the LLM could achieve.
+Five secondary objectives support it:
+
+\begin{enumerate}
+    \item \textbf{Design} a German task set of 12--16 in-cabin tasks in two matched halves, with ground-truth tool calls for clear, two-step, clarification-needed, missing-function and German-feature requests.
+    \item \textbf{Specify} the human condition as a reproducible instrument through a written wizard protocol, wizard training and a pilot.
+    \item \textbf{Conduct} a within-subject driving-simulator study with 36 German-speaking drivers.
+    \item \textbf{Analyse} task success, dialogue efficiency, driving behaviour and questionnaire data, and classify every LLM failure on a task the human completed.
+    \item \textbf{Release} the pseudonymised session data, the task set and the wizard protocol to the WorlDrive corpus so that later studies can reuse the human baseline.
+\end{enumerate}
 
 % ══════════════════════════════════════════════════════════
 %  4  RELATED WORK
 % ══════════════════════════════════════════════════════════
 \section{Related Work}
 
-\guidance{%
-    \textbf{Purpose of this section:} Demonstrate awareness of existing
-    literature and position your work relative to it.  Aim for 1--2 pages.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item \textbf{Search strategy} (brief) — which databases, keywords, and
-              date range you used (e.g., ACM Digital Library, IEEE Xplore,
-              Google Scholar; last 10 years).
-        \item \textbf{Thematic clusters} — group related papers by sub-topic,
-              not by chronology.  Use one subsection per cluster.
-        \item \textbf{Critical synthesis} — do not merely summarise each paper;
-              compare, contrast, and identify common limitations.
-        \item \textbf{Gap identification} — conclude with the specific gap your
-              thesis fills, explicitly referencing your RQs.
-    \end{itemize}
-    \textbf{Tip:} Every claim should be backed by a citation \cite{doe_example_2024}.
-    Aim for at least 10--15 sources in the exposé.%
-}
+The search covered the ACM Digital Library, IEEE Xplore, Google Scholar and arXiv for 2015--2026, combining in-vehicle voice assistant, LLM agent and tool calling with Wizard of Oz, human baseline and driver workload.
+Backward snowballing started from the supervisor's PromptDrive paper \cite{Alvarez26Do}.
+Only peer-reviewed sources were retained.
 
-\subsection{[Topic Cluster 1 — e.g., Existing Approaches]}
+\subsection{LLM Assistants with Real Drivers}
 
-\guidance{Summarise 3--5 papers that address the problem from one angle.
-Highlight their strengths and shared limitations.}
+Choe et al.~\cite{Choe26ChatGPT} let 40 drivers in a motion-based simulator experience no agent, a scripted agent and a ChatGPT-based agent.
+The LLM agent produced more stable driving and higher ratings of competence, affective trust and preference than the scripted one.
+Liu et al.~\cite{Liu26Affective} had 31 drivers complete navigation tasks by voice while driving.
+Dialogues with more turns and longer completion times went with frustration, lower perceived control and less stable lane keeping and speed regulation.
+The PromptDrive pilot collected 383 spoken commands from 30 drivers in Germany and Mexico under three priming styles, with no agent responding \cite{Alvarez26Do}.
+Descriptively, its seven German-language sessions reported the highest workload of all cells.
 
-\subsection{[Topic Cluster 2 — e.g., Relevant Techniques / Frameworks]}
+Together these studies show that LLM assistants are preferred and that dialogue effort matters for driving.
+They share three limits.
+The comparator is a scripted system or none, so none says how good an LLM assistant is in absolute terms.
+None scores whether the assistant completed the driver's request against ground-truth actions.
+And apart from the seven PromptDrive sessions, none involved German-speaking drivers.
 
-\guidance{Summarise 3--5 papers that provide methodological or technical
-foundations relevant to your work.}
+\subsection{Tool-Using Agents and Language}
 
-\subsection{[Topic Cluster 3 — e.g., Gaps \& Open Challenges]}
+CAR-bench measures what the user studies leave out \cite{Kirmayr26CAR}.
+It gives LLM agents 58 interconnected vehicle tools and scores each task against ground-truth actions.
+Two of its task types matter here: requests that need a clarifying question, and requests for functions the car does not have.
+Frontier models complete fewer than half of the ambiguous tasks consistently and often act on requests they cannot fulfil.
+The users are LLM-simulated, the language is English and there is no driving task.
 
-\guidance{Synthesise the overall state of the art and clearly identify the
-gap your thesis addresses.  This subsection is the bridge to your problem
-statement.}
+Luo et al.~\cite{Luo26Lost} show why the driver's language matters for such agents.
+In Chinese, Hindi and Igbo, tool calling fails even when the model understands the intent and picks the right tool, mainly because parameter values are written in the user's language where the tool expects fixed English values.
+No inference-time fix fully restores English-level performance.
+German was not tested, and neither was a car.
+
+\subsection{The Human as Reference}
+
+The Wizard-of-Oz method lets a hidden human play the system, which makes it the natural way to obtain a human reference.
+Vrins et al.~\cite{Vrins24Wizard} compared a robot driven by GPT-4 with the same robot driven by a wizard in a within-subject brainstorming study with 27 participants.
+Perceived social intelligence was similar, and participants reliably identified which robot the human controlled.
+That study measured perception only; the robot had no tools to operate.
+Riek~\cite{Riek12Wizard} reviewed 54 Wizard-of-Oz experiments and found that few reported wizard training, wizard errors or whether participants recognised the wizard.
+The reporting guidelines derived from that review make the human condition of this thesis reproducible.
+
+\subsection{Theoretical Lens: Trust in Automation}
+
+The thesis interprets its data through Körber's model of trust in automation \cite{Koerber19Trust}.
+The model treats trust as an attitude formed from beliefs about the system, chiefly its reliability and competence and its understandability and predictability.
+In its validation, an unreliable automated driving system received lower trust ratings, and trust predicted reliance in a simulator study.
+Applied here, failed tasks and unexpected replies should lower the perceived reliability and predictability of the LLM assistant and therefore trust.
+The lens shapes the measurement: trust is captured with the model's subscales rather than a single item, and the failure analysis of RQ3 is read as the source of perceived unreliability.
+
+\subsection{The Gap}
+
+User studies have real drivers but no human reference and no ground truth.
+Benchmarks have ground truth but simulated users, English and no driving.
+The Wizard-of-Oz literature offers the method but has not used it to benchmark a tool-using assistant in the car.
+No study compares a tool-using LLM assistant with a human assistant who has the same tools, with German-speaking drivers, on task success, driving and trust at once.
+RQ1 addresses task success and efficiency, RQ2 driving and experience, and RQ3 uses the human condition to separate failures of the LLM from hard tasks.
 
 % ══════════════════════════════════════════════════════════
 %  5  METHODOLOGY
 % ══════════════════════════════════════════════════════════
 \section{Methodology}
 
-\guidance{%
-    \textbf{Purpose of this section:} Describe \emph{how} you will answer your
-    research questions.  This is often the most critical section for
-    supervisors.  Aim for 1--2 pages.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item \textbf{Research design} — qualitative, quantitative, or mixed?
-              Empirical study, design science, systematic review, simulation, \ldots?
-        \item \textbf{Use case / study context} — the specific system, domain, or
-              dataset you will work with.
-        \item \textbf{Variables or evaluation criteria} — what you measure and
-              how (independent, dependent, control variables for experiments;
-              or evaluation criteria for design artefacts).
-        \item \textbf{Data collection} — surveys, interviews, logs, benchmarks,
-              public datasets, \ldots
-        \item \textbf{Analysis methods} — statistical tests, qualitative coding,
-              performance benchmarks, \ldots
-        \item \textbf{Validity considerations} — how you will ensure internal
-              and external validity, reliability, and ethical compliance.
-    \end{itemize}
-    \textbf{Tip:} Justify every methodological choice by linking it back to
-    your RQs.%
-}
+The thesis uses a within-subject controlled experiment in which every participant completes matched in-cabin tasks once with the LLM assistant and once with the human assistant.
+The within-subject form removes differences in driving skill, language and attitude towards assistants between people.
+Four hypotheses follow from the research questions and the lens; RQ3 is exploratory.
+
+\begin{itemize}
+    \item \textbf{H1} (RQ1): The task success rate is lower with the LLM assistant than with the human assistant, and the gap is largest for clarification-needed, missing-function and German-feature tasks.
+    \item \textbf{H2} (RQ1): Completed tasks need more dialogue turns and more time with the LLM assistant.
+    \item \textbf{H3} (RQ2): Lane keeping during tasks is less stable with the LLM assistant (higher SDLP relative to the pre-task baseline).
+    \item \textbf{H4} (RQ2): After the LLM block, workload is higher and trust and perceived usability are lower than after the human block.
+\end{itemize}
 
 \subsection{Use Case Definition}
 
-\guidance{Describe the application domain, system, or dataset that will serve
-as the object of study.  Explain why this use case is appropriate for
-answering your RQs.  Include any relevant constraints (access, size,
-language, \ldots).}
+The object of study is the in-cabin voice assistant of a passenger car, run on WorlDrive, the driving-simulator platform of the Human-Centered Intelligent Systems Lab at THI.
+WorlDrive records driving telemetry at 10\,Hz and lets the participant talk to an assistant that acts on 44 vehicle functions for climate, openings, lights, media, phone, navigation and vehicle information.
+The assistant seat is filled either by an LLM agent or by a researcher in the WoZ console.
+Both receive the same system prompt and the same tools, and both reply through the same text-to-speech (TTS) voice.
+This equality is what makes the human a fair reference rather than a differently briefed assistant.
+Each task has an initial cabin state, ground-truth tool calls and completion rules, from which the platform scores success automatically.
+
+The LLM is one current model with tool calling and strong German performance; its version, system prompt and temperature are fixed before the pilot and not changed afterwards.
+[TODO: name the model and confirm who covers API costs.]
+Sessions take place in the lab with manual driving on a rural road with light traffic.
+Drivers speak through a push-to-talk button, because open-microphone voice detection failed in noisy settings in the PromptDrive pilot \cite{Alvarez26Do}.
+
+Participants are 36 licensed drivers aged 18 or older whose first language is German or who rate their German at CEFR level C1 or higher.
+People with a history of simulator sickness are excluded at screening.
+Recruitment runs through THI mailing lists and notices in Ingolstadt.
 
 \subsection{Independent Variables}
 
-\guidance{List and define the variables (or design parameters) that you will
-deliberately manipulate or vary.  For each variable, state its possible
-values or levels.}
+The manipulated variable is the \textbf{type of assistant}, with two levels, \emph{LLM agent} and \emph{human wizard}, varied within subjects.
+Two matched task sets (A and B) of equal composition ensure that no participant meets the same task twice.
+Condition order and the pairing of task set with condition are both counterbalanced, giving four sequences with nine participants each.
+Participants are assigned to sequences by a pre-generated random list.
+Table~\ref{tab:confounds} lists the confounds this design has to control.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{10.7cm}}
+    \caption{Confounds and how they are controlled}\label{tab:confounds}\\
+    \toprule
+    \textbf{Confound} & \textbf{Control} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Confound} & \textbf{Control} \\
+    \midrule
+    \endhead
+    Order and learning effects & Counterbalanced condition order and task set; practice drive before the first block \\
+    Task difficulty & Matched task sets with the same number of each task type \\
+    Wizard behaviour & Written protocol, training on all tasks, one or two operators for all sessions, operator logged per session \cite{Riek12Wizard} \\
+    Response latency & Measured per condition (median and 95th percentile) and reported; quick-reply shortcuts for the wizard \\
+    Speech recognition & The LLM receives the transcript while the wizard also hears the audio; RQ3 codes recognition errors separately \\
+    LLM non-determinism & Frozen model version, low temperature, every turn logged \\
+    Language proficiency and prior voice-assistant use & Recorded at intake and used as covariates \\
+    Recognising the human & Manipulation check at debriefing, analysed as a covariate \\
+    \bottomrule
+\end{longtable}
+}
 
 \subsection{Dependent Variables}
 
-\guidance{List and define the outcomes you will measure.  For each dependent
-variable, specify the measurement instrument or metric (e.g., task completion
-time in seconds, SUS score 0--100, F1-score, \ldots).}
+Table~\ref{tab:dv} operationalises each concept as a measure with its instrument and unit.
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{6.2cm} >{\raggedright\arraybackslash}p{4.4cm} >{\raggedright\arraybackslash}p{0.9cm}}
+    \caption{Operationalisation of the dependent variables}\label{tab:dv}\\
+    \toprule
+    \textbf{Concept} & \textbf{Measure} & \textbf{Instrument and unit} & \textbf{RQ} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    \textbf{Concept} & \textbf{Measure} & \textbf{Instrument and unit} & \textbf{RQ} \\
+    \midrule
+    \endhead
+    Task success & Share of tasks completed per participant and condition & WorlDrive reward, pass/fail per task & RQ1 \\
+    Dialogue efficiency & User turns and time to completion in completed tasks & Dialogue log; count, seconds & RQ1 \\
+    Lane keeping & SDLP during each task window minus pre-task baseline & Telemetry, metres & RQ2 \\
+    Speed control & Standard deviation of speed during each task window minus baseline & Telemetry, km/h & RQ2 \\
+    Workload & Raw NASA-TLX after each block \cite{Hart88NASA} & Questionnaire, 0--100 & RQ2 \\
+    Perceived usability & UEQ-S, pragmatic and hedonic quality, after each block \cite{Schrepp17UEQS} & Questionnaire, $-3$ to $+3$ & RQ2 \\
+    Trust & Trust in Automation questionnaire, German version, after each block \cite{Koerber19Trust} & Questionnaire, 1--5 per subscale & RQ2 \\
+    Failure type & Category per LLM failure on a task the human completed, plus German feature present & Coded transcripts and tool calls & RQ3 \\
+    \bottomrule
+\end{longtable}
+}
 
 \subsection{Procedure / Research Steps}
 
-\guidance{Provide a step-by-step overview of how the study or development work
-will be carried out — from setup and data collection through to analysis.
-A numbered list or small diagram works well here.}
+Each session lasts about 75 minutes and follows the same steps:
+
+\begin{enumerate}
+    \item Consent, demographics and screening (10\,min).
+    \item Practice drive without the assistant (5\,min) and a 3-minute baseline drive.
+    \item Block~1 with the first assistant: six to eight tasks spaced along the route, each shown as a goal on the head-up display (12\,min).
+    \item NASA-TLX, UEQ-S and trust questionnaire (7\,min).
+    \item Block~2 with the second assistant (12\,min), followed by the same questionnaires (7\,min).
+    \item Debriefing with the manipulation check and disclosure that one assistant was a human (5\,min).
+\end{enumerate}
+
+Participants are told they will test two versions of the assistant; the wizard works from a separate room and does not meet them before the debriefing.
+The experimenter is not blind to the condition, which the protocol limits by fixed instructions.
+A pilot with three to four people checks timing, task scoring and wizard consistency before data collection.
+
+Data collection starts after approval by the ethics committee.
+Participants give informed consent, may stop at any time, and their data are stored under pseudonymous session codes in line with the General Data Protection Regulation (GDPR).
+
+\subsection{Statistical Analysis}
+
+Task success rates are compared between conditions with a paired $t$-test, or a Wilcoxon signed-rank test if the differences are not approximately normal (RQ1).
+A mixed-effects logistic regression on single task outcomes, with participant and task as random effects, tests whether the gap depends on task type as H1 predicts (RQ1).
+Dialogue turns, time, SDLP, speed variation, workload, usability and trust are compared with paired tests on per-participant means (RQ2).
+The RQ2 outcomes form one family and are corrected with the Holm procedure; all tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
+For RQ3, two coders classify every failed LLM task by failure type and German-language feature, and agreement on a 20\,\% subset is reported as Cohen's $\kappa$ (RQ3).
+
+The sample size follows an a-priori power analysis in G*Power for a two-tailed paired $t$-test on the primary outcome with $\alpha = .05$, power $= .80$ and $d_z = 0.5$, which yields $N = 34$.
+No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
+The study targets 36 complete datasets, nine per sequence; if only 32 are reached, the detectable effect rises to $d_z = 0.52$.
+
+The main threats to validity are the simulator setting, the single model and a student-heavy sample, which limit generalisation, and the latency and speech-recognition differences between conditions, which are measured and reported rather than removed.
 
 % ══════════════════════════════════════════════════════════
 %  6  EXPECTED CONTRIBUTIONS
 % ══════════════════════════════════════════════════════════
 \section{Expected Contributions and Results}
 
-\guidance{%
-    \textbf{Purpose of this section:} Communicate the anticipated value of your
-    thesis.  Aim for 0.5--1 page.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item \textbf{Scientific contribution} — new knowledge, a validated
-              model, a benchmark, an empirically tested framework, \ldots
-        \item \textbf{Practical / applied contribution} — a prototype, tool,
-              guideline, or design recommendation.
-        \item \textbf{Expected findings} — your educated hypothesis about what
-              you will discover (be honest about uncertainty; phrases like
-              \emph{``we expect that \ldots''} or \emph{``it is hypothesised
-              that \ldots''} are appropriate).
-        \item \textbf{Limitations} — acknowledge foreseeable constraints
-              (sample size, generalisation, time, \ldots).
-    \end{itemize}
-    \textbf{Tip:} Do not over-promise.  Reviewers value intellectual honesty
-    over grand claims.%
-}
+The scientific contribution is the first measurement of how far a tool-using LLM in-car assistant falls short of a human assistant with the same tools, obtained with German-speaking drivers while driving.
+A second contribution is a failure taxonomy that separates recognition, understanding, tool and parameter errors and links them to request types and German-language features.
+
+The practical contribution is a reusable German task set and wizard protocol for WorlDrive, together with the human baseline data in the WorlDrive corpus.
+From the failure analysis the thesis derives design recommendations for German-language in-car agents.
+
+It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question, ask for a missing function or contain German compounds and loanwords.
+It is further expected that these failures cost extra turns, which should show as higher workload, lower trust and, less certainly, less stable lane keeping.
+A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
+
+The results are limited to one model, a simulator, a mainly student sample and the German language.
+Without an English comparison condition, the thesis can show which failures co-occur with German features but cannot prove that German causes them.
 
 % ══════════════════════════════════════════════════════════
 %  7  WORK PLAN & SCHEDULE
 % ══════════════════════════════════════════════════════════
 \section{Work Plan and Schedule}
 
-\guidance{%
-    \textbf{Purpose of this section:} Demonstrate that the project is
-    feasible within the allotted time.  The Gantt chart below covers a
-    typical 24-week (6-month) thesis period — adjust dates and tasks to
-    match your actual timeline.\\[0.5em]
-    \textbf{What to include:}
-    \begin{itemize}
-        \item A Gantt chart (provided) showing phases, tasks, and milestones.
-        \item A short paragraph (3--5 sentences) summarising the phases and
-              any critical-path dependencies.
-        \item Key milestones: registration, mid-point check-in, submission.
-    \end{itemize}
-    \textbf{Tip:} Build in buffer time before the final submission — unforeseen
-    delays (data collection issues, feedback rounds) are the rule, not the
-    exception.%
-}
+The plan covers 15 weeks, from 19 October 2026 to submission on 29 January 2027.
+No sessions are scheduled during the Christmas break in weeks 10 and 11.
 
 \noindent
 \resizebox{\textwidth}{!}{%
 \begin{ganttchart}[
-    x unit=0.6cm,
-    y unit title=0.55cm,
-    y unit chart=0.6cm,
+    x unit=0.75cm,
+    y unit title=0.5cm,
+    y unit chart=0.45cm,
     canvas/.append style={draw=none},
     vgrid={*1{draw=gridcolor, thin}},
     hgrid={*1{draw=gridcolor, thin}},
@@ -464,73 +520,68 @@ A numbered list or small diagram works well here.}
     milestone label font=\tiny\itshape,
     link/.style={-latex, thick, draw=linkgray!60},
     link bulge=4,
-]{1}{24}
+]{1}{15}
 
-    \gantttitle{Thesis Schedule in Weeks}{24} \\
-    \gantttitlelist{1,...,24}{1} \\
+    \gantttitle{Thesis Schedule in Weeks (19 Oct 2026 -- 29 Jan 2027)}{15} \\
+    \gantttitle{Oct}{2} \gantttitle{Nov}{5} \gantttitle{Dec}{4} \gantttitle{Jan}{4} \\
+    \gantttitlelist{1,...,15}{1} \\
 
     % ── Phase 1 ────────────────────────────────────────────
-    \ganttgroup{Phase 1: Topic \& Orientation}{1}{4} \\
-    \ganttbar[bar/.append style={fill=barblue}]{Topic exploration \& selection}{1}{2} \\
-    \ganttbar[bar/.append style={fill=barblue}]{Initial supervisor meetings}{1}{3} \\
-    \ganttbar[bar/.append style={fill=barblue}]{Define research question \& scope}{2}{4} \\
-    \ganttmilestone{Thesis registered}{4} \\
+    \ganttgroup{Phase 1: Preparation}{1}{5} \\
+    \ganttmilestone{Exposé approved, thesis registered}{2} \\
+    \ganttbar[bar/.append style={fill=barblue}, name=tasks]{Task set, wizard protocol \& agent profile}{1}{3} \\
+    \ganttbar[bar/.append style={fill=barblue}, name=pilot]{Pilot study, freeze tasks \& agent}{5}{5} \\
 
     % ── Phase 2 ────────────────────────────────────────────
-    \ganttgroup{Phase 2: Literature Review}{4}{9} \\
-    \ganttbar[bar/.append style={fill=barpurple}]{Systematic literature search}{4}{6} \\
-    \ganttbar[bar/.append style={fill=barpurple}]{Reading \& annotating sources}{5}{8} \\
-    \ganttbar[bar/.append style={fill=barpurple}]{Write literature review chapter}{7}{9} \\
+    \ganttgroup{Phase 2: Data Collection}{3}{9} \\
+    \ganttbar[bar/.append style={fill=barpurple}]{Recruitment}{3}{8} \\
+    \ganttbar[bar/.append style={fill=barpurple}, name=collect]{Sessions with 36 participants}{6}{9} \\
+    \ganttmilestone{Mid-point check-in with supervisor}{8} \\
 
     % ── Phase 3 ────────────────────────────────────────────
-    \ganttgroup{Phase 3: Methodology \& Research}{8}{15} \\
-    \ganttbar[bar/.append style={fill=barteal}]{Develop methodology / framework}{8}{10} \\
-    \ganttbar[bar/.append style={fill=barteal}]{Data collection / experimentation}{10}{13} \\
-    \ganttbar[bar/.append style={fill=barteal}]{Data analysis \& interpretation}{13}{15} \\
-    \ganttmilestone{Midpoint check-in with supervisor}{12} \\
+    \ganttgroup{Phase 3: Analysis}{7}{12} \\
+    \ganttbar[bar/.append style={fill=barteal}]{RQ3 failure coding}{7}{10} \\
+    \ganttbar[bar/.append style={fill=barteal}, name=analysis]{Statistical analysis}{9}{12} \\
+    \ganttbar[bar/.append style={fill=black!20}]{Christmas break (no sessions)}{10}{11} \\
 
     % ── Phase 4 ────────────────────────────────────────────
-    \ganttgroup{Phase 4: Writing}{9}{21} \\
-    \ganttbar[bar/.append style={fill=bargreen}]{Write methodology chapter}{9}{12} \\
-    \ganttbar[bar/.append style={fill=bargreen}]{Write results chapter}{14}{17} \\
-    \ganttbar[bar/.append style={fill=bargreen}]{Write discussion \& conclusion}{17}{19} \\
-    \ganttbar[bar/.append style={fill=bargreen}]{Write introduction \& abstract}{19}{21} \\
+    \ganttgroup{Phase 4: Writing}{3}{14} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Related work \& method chapters}{3}{9} \\
+    \ganttbar[bar/.append style={fill=bargreen}, name=results]{Results \& discussion chapters}{11}{13} \\
+    \ganttbar[bar/.append style={fill=bargreen}]{Introduction, conclusion \& abstract}{13}{14} \\
 
     % ── Phase 5 ────────────────────────────────────────────
-    \ganttgroup{Phase 5: Revision \& Submission}{20}{24} \\
-    \ganttbar[bar/.append style={fill=barorange}]{Self-revision \& proofreading}{20}{21} \\
-    \ganttbar[bar/.append style={fill=barorange}]{Supervisor feedback round}{21}{22} \\
-    \ganttbar[bar/.append style={fill=barorange}]{Final revisions \& formatting}{22}{23} \\
-    \ganttbar[bar/.append style={fill=barorange}]{Printing \& binding}{23}{24} \\
-    \ganttmilestone{Thesis submitted}{24} \\
+    \ganttgroup{Phase 5: Revision \& Submission}{13}{15} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Supervisor feedback round}{13}{14} \\
+    \ganttbar[bar/.append style={fill=barorange}]{Final revision, printing \& binding}{14}{15} \\
+    \ganttmilestone{Thesis submitted (29 Jan)}{15}
 
     % ── Dependency links ───────────────────────────────────
-    \ganttlink{elem3}{elem4}
-    \ganttlink{elem4}{elem5}
-    \ganttlink{elem6}{elem7}
-    \ganttlink{elem8}{elem9}
-    \ganttlink{elem9}{elem10}
-    \ganttlink{elem10}{elem15}
-    \ganttlink{elem15}{elem16}
-    \ganttlink{elem16}{elem17}
-    \ganttlink{elem18}{elem19}
-    \ganttlink{elem20}{elem21}
-    \ganttlink{elem21}{elem22}
+    \ganttlink{tasks}{pilot}
+    \ganttlink{pilot}{collect}
+    \ganttlink{collect}{analysis}
+    \ganttlink{analysis}{results}
 
 \end{ganttchart}
 }% end resizebox
 
+The pilot in week 5 must precede all sessions, because it freezes the task set, the agent profile and the wizard protocol.
+All 36 sessions have to fall into weeks 6 to 9, before the break, which leaves no slack.
+If recruitment slips, the remaining sessions move to week 12; if fewer participants are reached, the analysis reports the detectable effect given in Section~5.5.
+
 % ─────────────────────────────────────────────────────────
 %  BACK MATTER
 % ─────────────────────────────────────────────────────────
+\cleardoublepage
 \pagenumbering{Roman}
-\setcounter{page}{6}
+\setcounter{page}{2}
 
 % ── Glossary ─────────────────────────────────────────────
+\glsaddall
 \thispagestyle{myPageStyle}
-\glssetwidest{ADAS}
+\glssetwidest{NASA-TLX}
 \setglossarystyle{alttree}
-\printglossary[title=List of Abbreviations, toctitle=List of Abbreviations]
+\printglossary[title=List of Abbreviations, toctitle=List of Abbreviations, nonumberlist]
 \cleardoublepage
 
 % ── Bibliography ─────────────────────────────────────────

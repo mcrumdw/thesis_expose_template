@@ -279,13 +279,13 @@ Three research questions guide the work:
 \section{Objectives}
 
 The primary objective is to \emph{compare} a tool-using LLM assistant with a human assistant who has the same vehicle tools and the same instructions, on identical in-cabin tasks spoken in German by the same drivers, so that the human condition serves as an upper reference point for what the LLM assistant could achieve.
-The secondary objectives support this comparison:
+The secondary objectives support this comparison: 
 
 \begin{enumerate}
     \item \textbf{Design} a German task set of 12--16 in-cabin requests with ground-truth tool calls and completion criteria in WorlDrive, covering clear requests, requests that need a clarifying question, requests for functions the vehicle does not have, and requests that carry German-specific features (compound nouns, formal and informal address, English loanwords, place names).
     \item \textbf{Specify} the human condition as a reproducible instrument: a wizard protocol, training and a pilot that fix how the operator may use the 44 tools, when they may ask back and what they must refuse.
     \item \textbf{Conduct} a within-subject driving-simulator study with about 32 German-speaking licensed drivers on the WorlDrive platform, counterbalanced for condition order and task set.
-    \item \textbf{Analyse} task success, dialogue turns, task time and response latency from the logs, lane-keeping and speed stability from the simulator telemetry, and workload, perceived usability and trust from standardised questionnaires.
+    \item \textbf{Analyze} task success, dialog turns, task time, and response latency from the logs, lane-keeping, and speed stability from the simulator telemetry, and workload, perceived usability, and trust from standardized questionnaires.
     \item \textbf{Code} every LLM failure on a task the human assistant completed with a failure taxonomy (recognition, intent, tool choice, parameter, missing-capability handling, clarification) and a German-language feature scheme, with a second coder on a subset.
     \item \textbf{Contribute} the anonymised dialogue, tool-call and telemetry data of all sessions to the WorlDrive corpus, together with the task set and the wizard protocol, so that later studies can reuse the human baseline.
 \end{enumerate}

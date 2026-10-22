@@ -391,7 +391,7 @@ Table~\ref{tab:confounds} lists the confounds this design has to control.
     Task difficulty & Matched task sets with the same number of each task type \\
     Wizard behaviour & Written protocol, training on all tasks, one or two operators for all sessions, operator logged per session \cite{Riek12Wizard} \\
     Response latency & Measured per condition (median and 95th percentile) and reported; quick-reply shortcuts for the wizard \\
-    Speech recognition & The LLM receives the transcript while the wizard also hears the audio; RQ3 codes recognition errors separately \\
+    Speech recognition & The LLM receives the transcript while the wizard also hears the audio; RQ3 codes recognition errors separately; open decision in Table~\ref{tab:audio} \\
     LLM non-determinism & Frozen model version, low temperature, every turn logged \\
     Language proficiency and prior voice-assistant use & Recorded at intake and used as covariates \\
     Recognising the human & Wizard trained to reply quickly and briefly, using quick-reply shortcuts, so speed and style give less away; manipulation check at debriefing, analysed as a covariate \\
@@ -440,6 +440,36 @@ Wizard-of-Oz reports should state who the wizards were, how they were trained an
 }
 
 The rest of this exposé assumes option~A.
+
+\paragraph{Open decision: does the wizard hear the driver?}
+The LLM receives only the speech-recognition transcript, while the wizard can also play the driver's audio in the console.
+The current plan keeps the audio for the wizard; whether both assistants should instead work from the same transcript is a point for discussion with the supervisor (Table~\ref{tab:audio}).
+
+{\small
+\begin{longtable}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{6.1cm}}
+    \caption{Wizard input: audio or transcript only}\label{tab:audio}\\
+    \toprule
+    & \textbf{Audio and transcript (current plan)} & \textbf{Transcript only} \\
+    \midrule
+    \endfirsthead
+    \toprule
+    & \textbf{Audio and transcript (current plan)} & \textbf{Transcript only} \\
+    \midrule
+    \endhead
+    Advantages &
+    \textbullet~The human condition reflects how a co-driver actually hears a request\newline
+    \textbullet~The wizard can recover misrecognised words, so the reference shows what is achievable in principle &
+    \textbullet~Both assistants work from identical input, so differences reflect understanding and tool use only\newline
+    \textbullet~Faster wizard replies, since playing audio costs time \\
+    \midrule
+    Disadvantages &
+    \textbullet~Recognition errors count against the LLM only, so RQ1 compares speech recognition plus LLM with a human listener\newline
+    \textbullet~Playing a turn delays the wizard's reply and widens the latency difference &
+    \textbullet~The human condition no longer reflects a real co-driver\newline
+    \textbullet~A garbled transcript can make the wizard fail on requests a person would understand, which lowers the reference \\
+    \bottomrule
+\end{longtable}
+}
 
 \subsection{Dependent Variables}
 

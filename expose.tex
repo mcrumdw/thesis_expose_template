@@ -273,7 +273,7 @@ The primary objective is to \textbf{compare} a tool-using LLM assistant with a h
 Five secondary objectives support it:
 
 \begin{enumerate}
-    \item \textbf{Design} a German task set of 12--16 in-cabin tasks in two matched halves, with ground-truth tool calls for clear, two-step, clarification-needed, missing-function and German-feature requests.
+    \item \textbf{Design} a German task set of 24 in-cabin tasks in two matched sets of 12, with ground-truth tool calls for clear, two-step, clarification-needed, missing-function and German-feature requests.
     \item \textbf{Specify} the human condition as a reproducible instrument through a written wizard protocol, wizard training and a pilot.
     \item \textbf{Conduct} a within-subject driving-simulator study with 36 German-speaking drivers.
     \item \textbf{Analyse} task success, dialogue efficiency, driving behaviour and questionnaire data, and classify every LLM failure on a task the human completed.
@@ -371,7 +371,7 @@ Recruitment runs through THI mailing lists and notices in Ingolstadt.
 \subsection{Independent Variables}
 
 The manipulated variable is the \textbf{type of assistant}, with two levels, \emph{LLM agent} and \emph{human wizard}, varied within subjects.
-Two matched task sets (A and B) of equal composition ensure that no participant meets the same task twice.
+Two matched task sets (A and B) of 12 tasks each, with equal composition, ensure that no participant meets the same task twice.
 Condition order and the pairing of task set with condition are both counterbalanced, giving four sequences with nine participants each.
 Participants are assigned to sequences by a pre-generated random list.
 Table~\ref{tab:confounds} lists the confounds this design has to control.
@@ -457,7 +457,7 @@ Table~\ref{tab:dv} operationalises each concept as a measure with its instrument
     Task success & Share of tasks completed per participant and condition & WorlDrive reward, pass/fail per task & RQ1 \\
     Dialogue efficiency & User turns and time to completion in completed tasks & Dialogue log; count, seconds & RQ1 \\
     Lane keeping & SDLP during each task window minus pre-task baseline & Telemetry, metres & RQ2 \\
-    Speed control & Standard deviation of speed during each task window minus baseline & Telemetry, km/h & RQ2 \\
+    Speed control & Standard deviation of speed during each task window minus pre-task baseline & Telemetry, km/h & RQ2 \\
     Workload & Raw NASA-TLX after each block \cite{Hart88NASA} & Questionnaire, 0--100 & RQ2 \\
     Perceived usability & UEQ-S, pragmatic and hedonic quality, after each block \cite{Schrepp17UEQS} & Questionnaire, $-3$ to $+3$ & RQ2 \\
     Trust & Trust in Automation scale built into WorlDrive, 12 items on trust, willingness to rely and perceived safety, German translation, after each block & Questionnaire, mean of 12 items & RQ2 \\
@@ -473,23 +473,28 @@ WorlDrive provides the items in English; the German wording is translated and re
 
 \subsection{Procedure / Research Steps}
 
-Each session lasts about 75 minutes and follows the same steps:
+Each participant attends one visit of up to two hours in two parts.
+In Part~A (about 60\,min), the participant drives:
 
 \begin{enumerate}
-    \item Consent, demographics and screening (10\,min).
-    \item Practice drive without the assistant (5\,min) and a 3-minute baseline drive.
-    \item Block~1 with the first assistant: six to eight tasks spaced along the route, each shown as a goal on the head-up display (12\,min).
-    \item NASA-TLX, UEQ-S and trust questionnaire (7\,min).
-    \item Block~2 with the second assistant (12\,min), followed by the same questionnaires (7\,min).
-    \item Debriefing with the manipulation check and disclosure that one assistant was a human (5\,min).
+    \item Welcome, consent, demographics and screening, all entered in WorlDrive on the simulator computer (9\,min).
+    \item Seat adjustment and practice drive without the assistant (7\,min).
+    \item Block~1 with the first assistant: 12 tasks spaced along the route, each shown as a goal on the head-up display (12\,min).
+    \item NASA-TLX, UEQ-S and trust scale in WorlDrive (4\,min).
+    \item Block~2 with the second assistant (12\,min), followed by the same questionnaires and a simulator-sickness rating (4\,min).
+    \item Short interview on both assistants, used to interpret the RQ2 and RQ3 results (5\,min).
+    \item Manipulation check, first as an open question and then as a direct one, disclosure that one assistant was a human, and the invitation to play the wizard (6\,min).
 \end{enumerate}
 
-Participants are told they will test two versions of the assistant; the wizard works from a separate room and does not meet them before the debriefing.
+In Part~B, the participant gives a second consent, is trained on the console with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min).
+Depending on that participant's sequence, Part~B takes 36 or 52 minutes; the last participant of each day leaves after Part~A.
+Participants are told they will test two versions of the assistant, and the wizard works in a second room.
 The experimenter is not blind to the condition, which the protocol limits by fixed instructions.
-A pilot with three to four people checks timing, task scoring and wizard consistency before data collection.
+The author leads the sessions, interviews and debriefings, and a German-speaking student assistant runs the WorlDrive backend and the wizard room.
+A pilot with three to four people checks timing, whether 12 tasks fit into one block, task scoring and wizard consistency before data collection.
 
 Data collection starts after approval by the ethics committee.
-Participants give informed consent, may stop at any time, and their data are stored under pseudonymous session codes in line with the General Data Protection Regulation (GDPR).
+Participants give informed consent, may stop at any time and may withdraw their data after the disclosure; all data are stored under pseudonymous session codes in line with the General Data Protection Regulation (GDPR).
 
 \subsection{Statistical Analysis}
 

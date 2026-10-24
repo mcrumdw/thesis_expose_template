@@ -317,7 +317,7 @@ The Wizard-of-Oz method lets a hidden human play the system, which makes it the 
 An LLM can already seem as socially intelligent as a human operator: in a brainstorming task, a robot driven by GPT-4 was rated as socially intelligent as the same robot driven by a wizard, although the 27 participants reliably identified which one the human controlled~\cite{Vrins24Wizard}.
 That comparison covered perception only; the robot had no tools to operate.
 Published Wizard-of-Oz studies often omit what a reader needs to judge the human condition: few of 54 reviewed experiments reported how the wizard was trained, which errors the wizard made, or whether participants noticed that a human was in control~\cite{Riek12Wizard}.
-Following the reporting guidelines from that review, this thesis documents the wizard's training and protocol, records the operator of each session, and checks at debriefing whether participants recognised the human, so that the human condition can be repeated.
+Following the reporting guidelines from that review, this thesis documents the wizard's training and protocol, records who played the wizard in each session, and checks at debriefing whether participants recognised the human, so that the human condition can be repeated.
 
 \subsection{Theoretical Lens: Trust in Automation}
 
@@ -354,7 +354,7 @@ Four hypotheses follow from the research questions and the lens; RQ3 is explorat
 
 The object of study is the in-cabin voice assistant of a passenger car, run on WorlDrive, the driving-simulator platform of the Human-Centered Intelligent Systems Lab at THI.
 WorlDrive records driving telemetry at 10\,Hz and lets the participant talk to an assistant that acts on 44 vehicle functions for climate, openings, lights, media, phone, navigation and vehicle information.
-The assistant seat is filled either by an LLM agent or by a researcher in the WoZ console.
+The assistant seat is filled either by an LLM agent or by a human wizard who works in the WoZ console in a second room.
 Both receive the same system prompt and the same tools, and both reply through the same text-to-speech (TTS) voice.
 This equality is what makes the human a fair reference rather than a differently briefed assistant.
 Each task has an initial cabin state, ground-truth tool calls and completion rules, from which the platform scores success automatically.
@@ -389,56 +389,25 @@ Table~\ref{tab:confounds} lists the confounds this design has to control.
     \endhead
     Order and learning effects & Counterbalanced condition order and task set; practice drive before the first block \\
     Task difficulty & Matched task sets with the same number of each task type \\
-    Wizard behaviour & Written protocol, training on all tasks, one or two operators for all sessions, operator logged per session \cite{Riek12Wizard} \\
+    Wizard behaviour & Same scripted training, rule card and practice task for every wizard; wizards act on the driver's words, not on the console's task checklist; wizard logged per session and modelled as a random effect \cite{Riek12Wizard} \\
     Response latency & Measured per condition (median and 95th percentile) and reported; quick-reply shortcuts for the wizard \\
     Speech recognition & The LLM receives the transcript while the wizard also hears the audio; RQ3 codes recognition errors separately; open decision in Table~\ref{tab:audio} \\
     LLM non-determinism & Frozen model version, low temperature, every turn logged \\
     Language proficiency and prior voice-assistant use & Recorded at intake and used as covariates \\
     Recognising the human & Wizard trained to reply quickly and briefly, using quick-reply shortcuts, so speed and style give less away; manipulation check at debriefing, analysed as a covariate \\
+    Prior knowledge of the human condition & Debriefed participants agree to keep it confidential before they play the wizard; drivers and wizards never meet \\
     \bottomrule
 \end{longtable}
 }
 
-\paragraph{Open decision: who plays the wizard.}
-The human condition can be staffed in two ways, and the choice is to be agreed upon.
-In option~A, one trained operators play the wizard in all sessions ( if i could plac the wizard my self, participant acquisition would be much easier.
-In option~B, each session has two participants: one drives, and the other plays the wizard after a short training on the console.
-Wizard-of-Oz reports should state who the wizards were, how they were trained and whether they knew the hypotheses~\cite{Riek12Wizard}, so either option can be reported transparently; the two differ in what the human condition stands for (Table~\ref{tab:wizard}).
-
-{\small
-\begin{longtable}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{6.1cm}}
-    \caption{Options for staffing the wizard}\label{tab:wizard}\\
-    \toprule
-    & \textbf{A: Trained operators} & \textbf{B: Participant pairs} \\
-    \midrule
-    \endfirsthead
-    \toprule
-    & \textbf{A: Trained operators} & \textbf{B: Participant pairs} \\
-    \midrule
-    \endhead
-    Advantages &
-    \textbullet~Consistent wizard behaviour across all sessions\newline
-    \textbullet~The human condition is the competent reference that RQ1 assumes\newline
-    \textbullet~Blinding holds, because drivers never meet the wizard\newline
-    \textbullet~36 participants are enough &
-    \textbullet~No dedicated operator needed\newline
-    \textbullet~The human condition reflects an ordinary passenger as co-driver\newline
-    \textbullet~Wizards do not know the hypotheses\newline
-    \textbullet~Adds data on how lay people use the vehicle tools \\
-    \midrule
-    Disadvantages &
-    \textbullet~An operator must be available for about 36 sessions\newline
-    \textbullet~One operator's style may not generalise to other people\newline
-    \textbullet~The operator knows the hypotheses and may influence the dialogue &
-    \textbullet~72 participants needed in the same four weeks\newline
-    \textbullet~Wizard skill varies and cannot be separated from the driver, which lowers statistical power\newline
-    \textbullet~Drivers who meet their partner may guess which assistant is human\newline
-    \textbullet~First-time wizards are likely to answer more slowly, make more errors and over-help from the console's task checklist\newline
-    \bottomrule
-\end{longtable}
-}
-
-The rest of this exposé assumes option~A.
+\paragraph{Who plays the wizard.}
+The wizards are the participants themselves, linked in a chain agreed with the supervisor: after driving both blocks and being debriefed, each participant plays the wizard for the next participant.
+Every wizard receives the same scripted training, a rule card and one practice task, and agrees to keep the human condition confidential before taking the console.
+The first driver of each chain has no predecessor, so a stand-in plays the wizard there and wherever a cancellation breaks the chain; whether the stand-in is the study assistant, the author or a separately recruited person is still to be decided, and these sessions are flagged in the data.
+Almost every participant thus serves twice, once as driver and once as wizard, so 36 participants remain enough.
+Wizards never meet the driver they assist, and apart from the stand-ins none of them knows the hypotheses.
+In return, the human condition represents an ordinary German-speaking co-driver after a short training rather than an expert operator, and wizard skill varies between sessions.
+Following the reporting guidelines for Wizard-of-Oz studies, the thesis states who the wizards were, how they were trained and what they knew~\cite{Riek12Wizard}.
 
 \paragraph{Open decision: does the wizard hear the driver?}
 The LLM receives only the speech-recognition transcript, while the wizard can also play the driver's audio in the console.
@@ -553,8 +522,9 @@ Participants give informed consent, may stop at any time, and their data are sto
 \subsection{Statistical Analysis}
 
 Task success rates are compared between conditions with a paired $t$-test, or a Wilcoxon signed-rank test if the differences are not approximately normal (RQ1).
-A mixed-effects logistic regression on single task outcomes, with participant and task as random effects, tests whether the gap depends on task type as H1 predicts (RQ1).
+A mixed-effects logistic regression on single task outcomes, with participant and task as random effects and wizard as a random effect within the human condition, tests whether the gap depends on task type as H1 predicts (RQ1).
 Dialogue turns and time in completed tasks are compared with paired tests on per-participant means (RQ1).
+A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
 For RQ3, two coders classify every failed LLM task by failure type and German-language feature, and agreement on a 20\,\% subset is reported as Cohen's $\kappa$ (RQ3).
@@ -563,7 +533,7 @@ The sample size follows an a-priori power analysis in G*Power for a two-tailed p
 No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
 The study targets 36 complete datasets, nine per sequence; if only 32 are reached, the detectable effect rises to $d_z = 0.52$.
 
-The main threats to validity are the simulator setting, the single model and a student-heavy sample, which limit generalisation, and the latency and speech-recognition differences between conditions, which are measured and reported rather than removed.
+The main threats to validity are the simulator setting, the single model and a student-heavy sample, which limit generalisation; the latency and speech-recognition differences between conditions, which are measured and reported rather than removed; and wizard skill, which varies because each wizard serves only once and is therefore modelled rather than held constant.
 
 % ══════════════════════════════════════════════════════════
 %  6  EXPECTED CONTRIBUTIONS
@@ -581,6 +551,7 @@ It is further expected that these failures cost extra turns, which should show a
 A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
 
 The results are limited to one model, a simulator, a mainly student sample and the German language.
+The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.
 Without an English comparison condition, the thesis can show which failures co-occur with German features but cannot prove that German causes them.
 
 % ══════════════════════════════════════════════════════════

@@ -324,7 +324,7 @@ Following the reporting guidelines from that review, this thesis documents the w
 Trust in automation is an attitude formed from beliefs about the system, chiefly its reliability and competence and its understandability and predictability~\cite{Koerber19Trust}.
 In the validation of this model, an unreliable automated driving system received lower trust ratings, and trust predicted reliance in a simulator study.
 The thesis uses Körber's model as its lens: failed tasks and unexpected replies should lower the perceived reliability and predictability of the LLM assistant and therefore trust.
-The lens also shapes the measurement: trust is captured with the model's subscales rather than a single item, and the failure analysis of RQ3 is read as the source of perceived unreliability.
+The lens also shapes the measurement: trust is captured after each block with a multi-item scale that also covers the willingness to rely on the assistant, and the failure analysis of RQ3 is read as the source of perceived unreliability.
 
 \subsection{The Gap}
 
@@ -460,44 +460,16 @@ Table~\ref{tab:dv} operationalises each concept as a measure with its instrument
     Speed control & Standard deviation of speed during each task window minus baseline & Telemetry, km/h & RQ2 \\
     Workload & Raw NASA-TLX after each block \cite{Hart88NASA} & Questionnaire, 0--100 & RQ2 \\
     Perceived usability & UEQ-S, pragmatic and hedonic quality, after each block \cite{Schrepp17UEQS} & Questionnaire, $-3$ to $+3$ & RQ2 \\
-    Trust & Trust in Automation questionnaire, German version, after each block \cite{Koerber19Trust} & Questionnaire, 1--5 per subscale & RQ2 \\
+    Trust & Trust in Automation scale built into WorlDrive, 12 items on trust, willingness to rely and perceived safety, German translation, after each block & Questionnaire, mean of 12 items & RQ2 \\
     Failure type & Category per LLM failure on a task the human completed, plus German feature present & Coded transcripts and tool calls & RQ3 \\
     \bottomrule
 \end{longtable}
 }
 
-\paragraph{Open decision: which trust questionnaire.}
-The theoretical lens and H4 rest on Körber's questionnaire, which measures trust with 19 items in six subscales~\cite{Koerber19Trust}.
-WorlDrive also ships a ready-made Trust in Automation scale with 12 items on trust, willingness to rely on the system and perceived safety; its source is not named in the platform documentation.
-Which of the two to use is open for discussion with the supervisor (Table~\ref{tab:trust}).
-
-{\small
-\begin{longtable}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{6.1cm}}
-    \caption{Trust questionnaire: Körber or WorlDrive built-in}\label{tab:trust}\\
-    \toprule
-    & \textbf{Körber, 19 items (current plan)} & \textbf{WorlDrive built-in, 12 items} \\
-    \midrule
-    \endfirsthead
-    \toprule
-    & \textbf{Körber, 19 items (current plan)} & \textbf{WorlDrive built-in, 12 items} \\
-    \midrule
-    \endhead
-    Advantages &
-    \textbullet~Subscales for reliability, competence, understandability and predictability match the lens, H4 and the reading of RQ3\newline
-    \textbullet~Published German version by the author\newline
-    \textbullet~Tested in an automated-driving simulator study &
-    \textbullet~Ready to use without setup and exported with the other questionnaires\newline
-    \textbullet~Shorter, which saves time twice per session \\
-    \midrule
-    Disadvantages &
-    \textbullet~Has to be entered by hand in WorlDrive as 19 five-point items, with a risk of copying errors\newline
-    \textbullet~Takes longer to answer after each block &
-    \textbullet~Its source has to be identified before it can be cited\newline
-    \textbullet~Its dimensions differ from the lens, so Section~4.4 and H4 would need rewording\newline
-    \textbullet~German wording still to be checked against a validated translation \\
-    \bottomrule
-\end{longtable}
-}
+Trust is measured with the Trust in Automation scale built into WorlDrive rather than with Körber's 19-item questionnaire, because it needs no manual setup and takes less time after each block.
+Its items do not follow Körber's subscales, so the analysis uses the overall score and tests the lens on the direction of the trust difference rather than on single beliefs.
+WorlDrive provides the items in English; the German wording is translated and reviewed before the pilot.
+% TODO (C-006): confirm the source citation WorlDrive shows for this scale (the WorlDrive quick reference names Jian et al. 2000). Citing it needs one of the ten reference slots.
 
 \subsection{Procedure / Research Steps}
 

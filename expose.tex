@@ -489,10 +489,10 @@ Task success rates are compared between conditions with a paired $t$-test, or a 
 A mixed-effects logistic regression on single task outcomes, with participant and task (nested in set) as random effects, block as a fixed effect and wizard as a random effect within the human condition, tests whether the gap depends on task type as H1 predicts (RQ1).
 Dialogue turns and time in completed tasks are compared with paired tests on per-participant means (RQ1).
 A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
-For the exploratory Part~B aim, wizard behaviour (reply time, words per reply, turns, clarification questions) is compared descriptively between B-watch and B-direct wizards, and the answers on changed perception are analysed qualitatively.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
 RQ3 is exploratory and outside the Holm family: words per reply, turns, seconds and the share of clarification questions are compared between the assistants with paired tests on per-participant means, and the codes for actions and for reactions to recognition errors are compared in contingency tables (RQ3).
+For the exploratory Part~B aim, wizard behaviour (reply time, words per reply, turns, clarification questions) is compared descriptively between B-watch and B-direct wizards, and the answers on changed perception are analysed qualitatively.
 
 The sample size follows an a-priori power analysis in G*Power for a two-tailed paired $t$-test on the primary outcome with $\alpha = .05$, power $= .80$ and $d_z = 0.5$, which yields $N = 34$.
 No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
@@ -512,9 +512,9 @@ The practical contribution is a reusable German task set and wizard protocol for
 From this comparison the thesis derives design recommendations for German-language in-car agents.
 
 It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question or ask for a missing function.
-For RQ3, the human is expected to give shorter replies and to ask more often when a request is unclear, while the LLM is expected to act on an assumption more often.
 It is further expected that these failures cost extra turns, which should show as higher workload, lower trust and, less certainly, less stable lane keeping.
 A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
+For RQ3, the human is expected to give shorter replies and to ask more often when a request is unclear, while the LLM is expected to act on an assumption more often.
 
 The results are limited to one model, a simulator, a mainly student sample and the German language.
 The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.
@@ -577,7 +577,7 @@ No sessions are scheduled from 18 to 22 November, when the author is away, or du
     \ganttmilestone{Mid-point check-in with supervisor}{8} \\
 
     % ── Phase 3 ────────────────────────────────────────────
-    \ganttgroup{Phase 3: Analysis}{7}{12} \\
+    \ganttgroup{Phase 3: Analysis}{6}{12} \\
     \ganttbar[bar/.append style={fill=barteal}]{RQ3 transcript coding}{6}{10} \\
     \ganttbar[bar/.append style={fill=barteal}, name=analysis]{Statistical analysis}{9}{12} \\
     \ganttbar[bar/.append style={fill=black!20}]{Christmas break (no sessions)}{10}{11} \\

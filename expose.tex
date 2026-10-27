@@ -528,7 +528,7 @@ Whether a wizard watches the LLM first follows the next driver's sequence, so th
 \section{Work Plan and Schedule}
 
 The plan covers 15 weeks, from 19 October 2026 to submission on 29 January 2027.
-No sessions are scheduled during the Christmas break in weeks 10 and 11.
+No sessions are scheduled from 18 to 22 November, when the author is away, or during the Christmas break in weeks 10 and 11.
 
 \noindent
 \resizebox{\textwidth}{!}{%
@@ -563,20 +563,22 @@ No sessions are scheduled during the Christmas break in weeks 10 and 11.
     \gantttitlelist{1,...,15}{1} \\
 
     % ── Phase 1 ────────────────────────────────────────────
-    \ganttgroup{Phase 1: Preparation}{1}{5} \\
+    \ganttgroup{Phase 1: Preparation}{1}{4} \\
     \ganttmilestone{Exposé approved, thesis registered}{2} \\
+    \ganttmilestone{Trial run of the set-up (29 Oct)}{2} \\
     \ganttbar[bar/.append style={fill=barblue}, name=tasks]{Task set (48 tasks), wizard protocol \& agent profile}{1}{3} \\
-    \ganttbar[bar/.append style={fill=barblue}, name=pilot]{Pilot study, freeze tasks \& agent}{5}{5} \\
+    \ganttbar[bar/.append style={fill=barblue}, name=pilot]{Pilot study (week of 9 Nov), freeze tasks \& agent}{4}{4} \\
 
     % ── Phase 2 ────────────────────────────────────────────
-    \ganttgroup{Phase 2: Data Collection}{3}{9} \\
-    \ganttbar[bar/.append style={fill=barpurple}]{Recruitment}{3}{8} \\
-    \ganttbar[bar/.append style={fill=barpurple}, name=collect]{Sessions with 36 participants}{6}{9} \\
+    \ganttgroup{Phase 2: Data Collection}{2}{9} \\
+    \ganttbar[bar/.append style={fill=barpurple}]{Recruitment}{2}{8} \\
+    \ganttbar[bar/.append style={fill=barpurple}, name=collect]{Sessions with 36 participants}{4}{9} \\
+    \ganttbar[bar/.append style={fill=black!20}]{No sessions, author away (18--22 Nov)}{5}{5} \\
     \ganttmilestone{Mid-point check-in with supervisor}{8} \\
 
     % ── Phase 3 ────────────────────────────────────────────
     \ganttgroup{Phase 3: Analysis}{7}{12} \\
-    \ganttbar[bar/.append style={fill=barteal}]{RQ3 transcript coding}{7}{10} \\
+    \ganttbar[bar/.append style={fill=barteal}]{RQ3 transcript coding}{6}{10} \\
     \ganttbar[bar/.append style={fill=barteal}, name=analysis]{Statistical analysis}{9}{12} \\
     \ganttbar[bar/.append style={fill=black!20}]{Christmas break (no sessions)}{10}{11} \\
 
@@ -601,8 +603,8 @@ No sessions are scheduled during the Christmas break in weeks 10 and 11.
 \end{ganttchart}
 }% end resizebox
 
-The pilot in week 5 must precede all sessions, because it freezes the task set, the agent profile and the wizard protocol.
-All 36 sessions have to fall into weeks 6 to 9, before the break, which leaves no slack.
+A trial run of the set-up on 29 October and the pilot at the start of week 4 precede all sessions, because the pilot freezes the task set, the agent profile and the wizard protocol; since sessions start in the same week, only small fixes are possible after it.
+The 36 sessions fall into weeks 4 to 9, before the Christmas break, which leaves about one week of slack.
 If recruitment slips, the remaining sessions move to week 12; if fewer participants are reached, the analysis reports the detectable effect given in Section~5.5.
 
 % ─────────────────────────────────────────────────────────

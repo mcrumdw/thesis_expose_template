@@ -250,7 +250,7 @@ It covers one LLM, the German language, manual driving and in-cabin tasks for co
 It is unknown how far a tool-using LLM in-car assistant falls short of a competent human assistant, and on which requests.
 Existing evaluations compare the LLM with a scripted agent, with no agent, or with a simulated user \cite{Choe26ChatGPT,Kirmayr26CAR}.
 They therefore cannot separate failures of the agent from tasks that are hard for anyone.
-German-speaking drivers have not been studied with such an agent, so it is also unknown whether German requests add failures of their own.
+German-speaking drivers have not been studied with such an agent, so it is also unknown how it converses with them compared with a human.
 Three research questions guide the work:
 
 \begin{longtable}{p{0.3cm} p{0.8cm} p{12.7cm} p{0.5cm}}
@@ -258,7 +258,7 @@ Three research questions guide the work:
     & & & \\
     & \textbf{RQ2} & How does the type of assistant (LLM or human) affect drivers' lane keeping, workload, perceived usability and trust? & \\
     & & & \\
-    & \textbf{RQ3} & Which request types and German-language features characterise the tasks that the LLM assistant fails but the human assistant completes? & \\
+    & \textbf{RQ3} & How do the LLM assistant and the human wizard differ in their interaction with German-speaking drivers, in (a)~language use: reply length and wording, (b)~conversation: turns, duration and who leads it, and (c)~action: tool calls, and whether they ask for clarification or act on an assumption when a request is unclear or misrecognised? & \\
 \end{longtable}
 \addtocounter{table}{-1}
 
@@ -276,7 +276,7 @@ Five secondary objectives support it:
     \item \textbf{Design} a German task set of 48 in-cabin tasks in four matched sets of 12, with ground-truth tool calls for clear, two-step, clarification-needed and missing-function requests.
     \item \textbf{Specify} the human condition as a reproducible instrument through a written wizard protocol, wizard training and a pilot.
     \item \textbf{Conduct} a within-subject driving-simulator study with 36 German-speaking drivers.
-    \item \textbf{Analyse} task success, dialogue efficiency, driving behaviour and questionnaire data, and classify every LLM failure on a task the human completed.
+    \item \textbf{Analyse} task success, dialogue efficiency, driving behaviour and questionnaire data, and code the transcripts of both blocks for language use, conversation and actions.
     \item \textbf{Release} the pseudonymised session data, the task set and the wizard protocol to the WorlDrive corpus so that later studies can reuse the human baseline.
 \end{enumerate}
 
@@ -314,8 +314,8 @@ German was not tested, and neither was a car.
 \subsection{The Human as Reference}
 
 The Wizard-of-Oz method lets a hidden human play the system, which makes it the natural way to obtain a human reference.
-An LLM can already seem as socially intelligent as a human operator: in a brainstorming task, a robot driven by GPT-4 was rated as socially intelligent as the same robot driven by a wizard, although the 27 participants reliably identified which one the human controlled~\cite{Vrins24Wizard}.
-That comparison covered perception only; the robot had no tools to operate.
+An LLM can already seem as socially intelligent as a human operator: in a brainstorming task, a robot driven by GPT-4 was rated as socially intelligent as the same robot driven by a wizard, although the 27 participants reliably identified which one the human controlled, which the authors attribute to the human's slower and shorter replies~\cite{Vrins24Wizard}.
+That comparison covered perception only; the robot had no tools to operate, and the differences in the replies were inferred rather than measured, which is where RQ3 starts.
 Published Wizard-of-Oz studies often omit what a reader needs to judge the human condition: few of 54 reviewed experiments reported how the wizard was trained, which errors the wizard made, or whether participants noticed that a human was in control~\cite{Riek12Wizard}.
 Following the reporting guidelines from that review, this thesis documents the wizard's training and protocol, records who played the wizard in each session, and checks at debriefing whether participants recognised the human, so that the human condition can be repeated.
 
@@ -324,15 +324,15 @@ Following the reporting guidelines from that review, this thesis documents the w
 Trust in automation is an attitude formed from beliefs about the system, chiefly its reliability and competence and its understandability and predictability~\cite{Koerber19Trust}.
 In the validation of this model, an unreliable automated driving system received lower trust ratings, and trust predicted reliance in a simulator study.
 The thesis uses Körber's model as its lens: failed tasks and unexpected replies should lower the perceived reliability and predictability of the LLM assistant and therefore trust.
-The lens also shapes the measurement: trust is captured after each block with a multi-item scale that also covers the willingness to rely on the assistant, and the failure analysis of RQ3 is read as the source of perceived unreliability.
+The lens also shapes the measurement: trust is captured after each block with a multi-item scale that also covers the willingness to rely on the assistant, and the actions coded for RQ3, such as wrong tool calls and unasked assumptions, are read as sources of perceived unreliability.
 
 \subsection{The Gap}
 
 User studies have real drivers but no human reference and no ground truth.
 Benchmarks have ground truth but simulated users, English and no driving.
 The Wizard-of-Oz literature offers the method but has not used it to benchmark a tool-using assistant in the car.
-No study compares a tool-using LLM assistant with a human assistant who has the same tools, with German-speaking drivers, on task success, driving and trust at once.
-RQ1 addresses task success and efficiency, RQ2 driving and experience, and RQ3 uses the human condition to separate failures of the LLM from hard tasks.
+No study compares a tool-using LLM assistant with a human assistant who has the same tools, with German-speaking drivers, on task success, conversation, driving and trust at once.
+RQ1 addresses task success and efficiency, RQ2 driving and experience, and RQ3 how the two assistants differ in language use, conversation and action.
 
 % ══════════════════════════════════════════════════════════
 %  5  METHODOLOGY
@@ -462,7 +462,9 @@ Table~\ref{tab:dv} operationalises each concept as a measure with its instrument
     Workload & Raw NASA-TLX after each block \cite{Hart88NASA} & Questionnaire, 0--100 & RQ2 \\
     Perceived usability & UEQ-S, pragmatic and hedonic quality, after each block \cite{Schrepp17UEQS} & Questionnaire, $-3$ to $+3$ & RQ2 \\
     Trust & Trust in Automation scale built into WorlDrive, 12 items on trust, willingness to rely and perceived safety, German translation, after each block & Questionnaire, mean of 12 items & RQ2 \\
-    Failure type & Category per LLM failure on a task the human completed & Coded transcripts and tool calls & RQ3 \\
+    Language use & Words per reply; reply type (action with confirmation, clarification question, refusal, information, other) & Coded transcripts; count and category per reply & RQ3 \\
+    Conversation & Turns and seconds per task, including failed tasks; share of assistant turns that ask or propose something, as a sign of who leads & Dialogue log and coded transcripts; count, seconds, share per task & RQ3 \\
+    Action & Tool calls per task (correct, wrong, none); reaction to a misrecognised request (asked, assumed correctly, assumed wrongly, did nothing) & Tool-call log and coded transcripts; category per call and per recognition error & RQ3 \\
     \bottomrule
 \end{longtable}
 }
@@ -471,6 +473,10 @@ Trust is measured with the Trust in Automation scale built into WorlDrive rather
 Its items do not follow Körber's subscales, so the analysis uses the overall score and tests the lens on the direction of the trust difference rather than on single beliefs.
 WorlDrive provides the items in English; the German wording is translated and reviewed before the pilot.
 % TODO (C-006): confirm the source citation WorlDrive shows for this scale (the WorlDrive quick reference names Jian et al. 2000). Citing it needs one of the ten reference slots.
+
+For RQ3, the transcripts of both blocks are coded per reply, per task, per tool call and per recognition error.
+A recognition error is a task-critical word in which the transcript differs from the audio recording.
+Two coders code a 20\,\% sample independently, and agreement is reported as Cohen's $\kappa$.
 
 \subsection{Procedure / Research Steps}
 
@@ -505,7 +511,7 @@ Dialogue turns and time in completed tasks are compared with paired tests on per
 A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
-For RQ3, two coders classify every failed LLM task by failure type, and agreement on a 20\,\% subset is reported as Cohen's $\kappa$ (RQ3).
+RQ3 is exploratory and outside the Holm family: words per reply, turns, seconds and the share of clarification questions are compared between the assistants with paired tests on per-participant means, and the codes for actions and for reactions to recognition errors are compared in contingency tables (RQ3).
 
 The sample size follows an a-priori power analysis in G*Power for a two-tailed paired $t$-test on the primary outcome with $\alpha = .05$, power $= .80$ and $d_z = 0.5$, which yields $N = 34$.
 No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
@@ -519,12 +525,13 @@ The main threats to validity are the simulator setting, the single model and a s
 \section{Expected Contributions and Results}
 
 The scientific contribution is the first measurement of how far a tool-using LLM in-car assistant falls short of a human assistant with the same tools, obtained with German-speaking drivers while driving.
-A second contribution is a failure taxonomy that separates recognition, understanding, tool and parameter errors and links them to request types.
+A second contribution is a description of how an LLM assistant and a human differ in language use, conversation and action with German-speaking drivers, including how each handles a request that speech recognition got wrong.
 
 The practical contribution is a reusable German task set and wizard protocol for WorlDrive, together with the human baseline data in the WorlDrive corpus.
-From the failure analysis the thesis derives design recommendations for German-language in-car agents.
+From this comparison the thesis derives design recommendations for German-language in-car agents.
 
 It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question or ask for a missing function.
+For RQ3, the human is expected to give shorter replies and to ask more often when a request is unclear, while the LLM is expected to act on an assumption more often.
 It is further expected that these failures cost extra turns, which should show as higher workload, lower trust and, less certainly, less stable lane keeping.
 A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
 
@@ -586,7 +593,7 @@ No sessions are scheduled during the Christmas break in weeks 10 and 11.
 
     % ── Phase 3 ────────────────────────────────────────────
     \ganttgroup{Phase 3: Analysis}{7}{12} \\
-    \ganttbar[bar/.append style={fill=barteal}]{RQ3 failure coding}{7}{10} \\
+    \ganttbar[bar/.append style={fill=barteal}]{RQ3 transcript coding}{7}{10} \\
     \ganttbar[bar/.append style={fill=barteal}, name=analysis]{Statistical analysis}{9}{12} \\
     \ganttbar[bar/.append style={fill=black!20}]{Christmas break (no sessions)}{10}{11} \\
 

@@ -478,7 +478,7 @@ Depending on the next participant's sequence, Part~B takes about 32 or 48 minute
 Participants are told they will test two versions of the assistant, and the wizard works in a second room.
 Neither researcher is blind to the condition, which the protocol limits by fixed instructions; whether researcher~1 can be kept unaware of the block order is checked in the pilot.
 Two researchers run every session in fixed roles: researcher~1, a German-speaking student assistant provided by the supervisor, runs room~1 with the welcome, both drives and the questionnaires; researcher~2, the author, runs room~2, where he interviews and debriefs each participant, trains and supervises the participant wizards and plays the wizard for the first driver of each day.
-A pilot with three to four people checks timing, whether 12 tasks fit into one block, whether the four task sets are equally hard, task scoring and wizard consistency before data collection.
+A pilot with three to four people on 29 October checks timing, the short practice drive, whether 12 tasks fit into one block, task scoring and wizard consistency before data collection; whether the four task sets are equally hard can be checked only on the tasks written by then.
 
 Data collection starts after approval by the ethics committee.
 Participants give informed consent, may stop at any time and may withdraw their data after the disclosure; all data are stored under pseudonymous session codes in line with the General Data Protection Regulation (GDPR).
@@ -528,7 +528,7 @@ Whether a wizard watches the LLM first follows the next driver's sequence, so th
 \section{Work Plan and Schedule}
 
 The plan covers 15 weeks, from 19 October 2026 to submission on 29 January 2027.
-No sessions are scheduled from 18 to 22 November, when the author is away, or during the Christmas break in weeks 10 and 11.
+No sessions are scheduled from 16 to 22 November (week 5), when the author is away, or during the Christmas break in weeks 10 and 11.
 
 \noindent
 \resizebox{\textwidth}{!}{%
@@ -563,17 +563,16 @@ No sessions are scheduled from 18 to 22 November, when the author is away, or du
     \gantttitlelist{1,...,15}{1} \\
 
     % ── Phase 1 ────────────────────────────────────────────
-    \ganttgroup{Phase 1: Preparation}{1}{4} \\
+    \ganttgroup{Phase 1: Preparation}{1}{3} \\
     \ganttmilestone{Exposé approved, thesis registered}{2} \\
-    \ganttmilestone{Trial run of the set-up (29 Oct)}{2} \\
-    \ganttbar[bar/.append style={fill=barblue}, name=tasks]{Task set (48 tasks), wizard protocol \& agent profile}{1}{3} \\
-    \ganttbar[bar/.append style={fill=barblue}, name=pilot]{Pilot study (week of 9 Nov), freeze tasks \& agent}{4}{4} \\
+    \ganttbar[bar/.append style={fill=barblue}, name=tasks]{Task set (48 tasks), wizard protocol \& agent profile, frozen by 9 Nov}{1}{3} \\
+    \ganttbar[bar/.append style={fill=barblue}, name=pilot]{Pilot study (29 Oct)}{2}{2} \\
 
     % ── Phase 2 ────────────────────────────────────────────
     \ganttgroup{Phase 2: Data Collection}{2}{9} \\
     \ganttbar[bar/.append style={fill=barpurple}]{Recruitment}{2}{8} \\
     \ganttbar[bar/.append style={fill=barpurple}, name=collect]{Sessions with 36 participants}{4}{9} \\
-    \ganttbar[bar/.append style={fill=black!20}]{No sessions, author away (18--22 Nov)}{5}{5} \\
+    \ganttbar[bar/.append style={fill=black!20}]{No sessions, author away (16--22 Nov)}{5}{5} \\
     \ganttmilestone{Mid-point check-in with supervisor}{8} \\
 
     % ── Phase 3 ────────────────────────────────────────────
@@ -595,7 +594,7 @@ No sessions are scheduled from 18 to 22 November, when the author is away, or du
     \ganttmilestone{Thesis submitted (29 Jan)}{15}
 
     % ── Dependency links ───────────────────────────────────
-    \ganttlink{tasks}{pilot}
+    \ganttlink{tasks}{collect}
     \ganttlink{pilot}{collect}
     \ganttlink{collect}{analysis}
     \ganttlink{analysis}{results}
@@ -603,8 +602,8 @@ No sessions are scheduled from 18 to 22 November, when the author is away, or du
 \end{ganttchart}
 }% end resizebox
 
-A trial run of the set-up on 29 October and the pilot at the start of week 4 precede all sessions, because the pilot freezes the task set, the agent profile and the wizard protocol; since sessions start in the same week, only small fixes are possible after it.
-The 36 sessions fall into weeks 4 to 9, before the Christmas break, which leaves about one week of slack.
+The pilot on 29 October precedes all sessions; after it, the task set, the agent profile and the wizard protocol are completed and frozen before the sessions start on 9 November.
+The 36 sessions fall into weeks 4 and 6 to 9, before the Christmas break.
 If recruitment slips, the remaining sessions move to week 12; if fewer participants are reached, the analysis reports the detectable effect given in Section~5.5.
 
 % ─────────────────────────────────────────────────────────

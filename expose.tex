@@ -280,6 +280,8 @@ Five secondary objectives support it:
     \item \textbf{Release} the pseudonymised session data, the task set and the wizard protocol to the WorlDrive corpus so that later studies can reuse the human baseline.
 \end{enumerate}
 
+An exploratory aim uses Part~B of each visit: wizards who watched the LLM before taking over (B-watch) are compared with those who did not (B-direct) in reply length, conversation length and whether they copy the LLM's way of answering, and in how they perceive both assistants afterwards, to learn what users find worth adopting from the LLM and what they would change.
+
 % ══════════════════════════════════════════════════════════
 %  4  RELATED WORK
 % ══════════════════════════════════════════════════════════
@@ -396,7 +398,7 @@ Table~\ref{tab:confounds} lists the confounds this design has to control.
     LLM non-determinism & Frozen model version, low temperature, every turn logged \\
     Language proficiency and prior voice-assistant use & Recorded at intake and used as covariates \\
     Recognising the human & Wizard trained to reply quickly and briefly, using quick-reply shortcuts, so speed and style give less away; manipulation check at debriefing, analysed as a covariate \\
-    Prior knowledge of the human condition & Debriefed participants agree to keep it confidential before they play the wizard; drivers and wizards never meet; wizards never handle a task set they drove themselves \\
+    Prior knowledge of the human condition & Debriefed participants agree to keep it confidential before they play the wizard; drivers and wizards never meet; wizards never handle a task set they drove themselves; B-watch wizards watch the LLM block from room~2 only \\
     \bottomrule
 \end{longtable}
 }
@@ -495,8 +497,10 @@ In Part~A (about an hour), the participant drives in room~1 with researcher~1 an
     \item Manipulation check, first as an open question and then as a direct one, disclosure that one assistant was a human, and the invitation to play the wizard (6\,min).
 \end{enumerate}
 
-In Part~B, the participant gives a second consent, is trained on the console with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min).
-Depending on that participant's sequence, Part~B takes 36 or 52 minutes; the last participant of each day leaves after Part~A.
+In Part~B, which stays in room~2, the participant gives a second consent, is trained on the console by researcher~2 with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min).
+If that participant meets the LLM first, the wizard watches this LLM block from room~2 before taking over (B-watch); otherwise the wizard plays without having seen the LLM (B-direct).
+Afterwards, each wizard answers a short questionnaire and is asked whether their view of the two assistants changed after playing the wizard.
+Depending on the next participant's sequence, Part~B takes 36 or 52 minutes; the last participant of each day leaves after Part~A.
 Participants are told they will test two versions of the assistant, and the wizard works in a second room.
 Neither researcher is blind to the condition, which the protocol limits by fixed instructions; whether researcher~1 can be kept unaware of the block order is checked in the pilot.
 Two researchers run every session in fixed roles: researcher~1, a German-speaking student assistant provided by the supervisor, runs room~1 with the welcome, both drives and the questionnaires; researcher~2, the author, runs room~2, where he interviews and debriefs each participant, trains and supervises the participant wizards and plays the wizard for the first driver of each day.
@@ -511,6 +515,7 @@ Task success rates are compared between conditions with a paired $t$-test, or a 
 A mixed-effects logistic regression on single task outcomes, with participant and task (nested in set) as random effects, block as a fixed effect and wizard as a random effect within the human condition, tests whether the gap depends on task type as H1 predicts (RQ1).
 Dialogue turns and time in completed tasks are compared with paired tests on per-participant means (RQ1).
 A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
+For the exploratory Part~B aim, wizard behaviour (reply time, words per reply, turns, clarification questions) is compared descriptively between B-watch and B-direct wizards, and the answers on changed perception are analysed qualitatively.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
 RQ3 is exploratory and outside the Holm family: words per reply, turns, seconds and the share of clarification questions are compared between the assistants with paired tests on per-participant means, and the codes for actions and for reactions to recognition errors are compared in contingency tables (RQ3).
@@ -540,6 +545,7 @@ A null result for clear requests would itself be informative, because it would l
 The results are limited to one model, a simulator, a mainly student sample and the German language.
 The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.
 Without an English comparison condition, the thesis cannot say whether any difference between the assistants is due to German.
+Whether a wizard watches the LLM first follows the next driver's sequence, so the Part~B comparison is confounded with that order and stays exploratory.
 
 % ══════════════════════════════════════════════════════════
 %  7  WORK PLAN & SCHEDULE

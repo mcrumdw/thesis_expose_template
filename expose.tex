@@ -343,13 +343,14 @@ RQ1 addresses task success and efficiency, RQ2 driving and experience, and RQ3 h
 
 The thesis uses a within-subject controlled experiment in which every participant completes matched in-cabin tasks once with the LLM assistant and once with the human assistant.
 The within-subject form removes differences in driving skill, language and attitude towards assistants between people.
-Four hypotheses follow from the research questions and the lens; RQ3 is exploratory.
+Five hypotheses follow from the research questions, the lens and the related work; beyond H5, RQ3 is exploratory.
 
 \begin{itemize}
     \item \textbf{H1} (RQ1): The task success rate is lower with the LLM assistant than with the human assistant, and the gap is largest for clarification-needed and missing-function tasks.
     \item \textbf{H2} (RQ1): Completed tasks need more dialogue turns and more time with the LLM assistant.
     \item \textbf{H3} (RQ2): Lane keeping during tasks is less stable with the LLM assistant (higher SDLP relative to the pre-task baseline).
     \item \textbf{H4} (RQ2): After the LLM block, workload is higher and trust and perceived usability are lower than after the human block.
+    \item \textbf{H5} (RQ3): Compared with the human assistant, the LLM assistant gives longer replies, asks fewer clarification questions and more often acts on an assumption when a request is unclear or misrecognised.
 \end{itemize}
 
 \subsection{Use Case Definition}
@@ -491,7 +492,7 @@ Dialogue turns and time in completed tasks are compared with paired tests on per
 A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
-RQ3 is exploratory and outside the Holm family: words per reply, turns, seconds and the share of clarification questions are compared between the assistants with paired tests on per-participant means, and the codes for actions and for reactions to recognition errors are compared in contingency tables (RQ3).
+H5 is tested on words per reply and on the share of clarification questions with paired tests on per-participant means, Holm-corrected as a family of two outside the RQ2 family, and on the reactions to recognition errors in a contingency table; turns, seconds, reply types and tool-call codes are described exploratorily (RQ3).
 For the exploratory Part~B aim, wizard behaviour (reply time, words per reply, turns, clarification questions) is compared descriptively between B-watch and B-direct wizards, and the answers on changed perception are analysed qualitatively.
 
 The sample size follows an a-priori power analysis in G*Power for a two-tailed paired $t$-test on the primary outcome with $\alpha = .05$, power $= .80$ and $d_z = 0.5$, which yields $N = 34$.
@@ -514,7 +515,6 @@ From this comparison the thesis derives design recommendations for German-langua
 It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question or ask for a missing function.
 It is further expected that these failures cost extra turns, which should show as higher workload, lower trust and, less certainly, less stable lane keeping.
 A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
-For RQ3, the human is expected to give shorter replies and to ask more often when a request is unclear, while the LLM is expected to act on an assumption more often.
 
 The results are limited to one model, a simulator, a mainly student sample and the German language.
 The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.

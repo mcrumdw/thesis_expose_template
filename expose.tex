@@ -394,7 +394,7 @@ Table~\ref{tab:confounds} lists the confounds this design has to control.
     Task difficulty & Four matched sets with the same number of each task type; equal difficulty checked in the pilot; task modelled as a random effect \\
     Wizard behaviour & Same scripted training, rule card and practice task for every wizard; wizards act on the driver's words, not on the console's task checklist; wizard logged per session and modelled as a random effect \cite{Riek12Wizard} \\
     Response latency & Measured per condition (median and 95th percentile) and reported; quick-reply shortcuts for the wizard \\
-    Speech recognition & The LLM receives the transcript while the wizard also hears the audio; RQ3 codes recognition errors separately; open decision in Table~\ref{tab:audio} \\
+    Speech recognition & Both assistants receive the same transcript, and the wizard does not play the audio; recognition errors are coded for RQ3 \\
     LLM non-determinism & Frozen model version, low temperature, every turn logged \\
     Language proficiency and prior voice-assistant use & Recorded at intake and used as covariates \\
     Recognising the human & Wizard trained to reply quickly and briefly, using quick-reply shortcuts, so speed and style give less away; manipulation check at debriefing, analysed as a covariate \\
@@ -412,35 +412,9 @@ Wizards never meet the driver they assist, and apart from the author as stand-in
 In return, the human condition represents an ordinary German-speaking co-driver after a short training rather than an expert operator, and wizard skill varies between sessions.
 Following the reporting guidelines for Wizard-of-Oz studies, the thesis states who the wizards were, how they were trained and what they knew~\cite{Riek12Wizard}.
 
-\paragraph{Open decision: does the wizard hear the driver?}
-The LLM receives only the speech-recognition transcript, while the wizard can also play the driver's audio in the console.
-The current plan keeps the audio for the wizard; whether both assistants should instead work from the same transcript is a point for discussion with the supervisor (Table~\ref{tab:audio}).
-
-{\small
-\begin{longtable}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{6.1cm}}
-    \caption{Wizard input: audio or transcript only}\label{tab:audio}\\
-    \toprule
-    & \textbf{Audio and transcript (current plan)} & \textbf{Transcript only} \\
-    \midrule
-    \endfirsthead
-    \toprule
-    & \textbf{Audio and transcript (current plan)} & \textbf{Transcript only} \\
-    \midrule
-    \endhead
-    Advantages &
-    \textbullet~The human condition reflects how a co-driver actually hears a request\newline
-    \textbullet~The wizard can recover misrecognised words, so the reference shows what is achievable in principle &
-    \textbullet~Both assistants work from identical input, so differences reflect understanding and tool use only\newline
-    \textbullet~Faster wizard replies, since playing audio costs time \\
-    \midrule
-    Disadvantages &
-    \textbullet~Recognition errors count against the LLM only, so RQ1 compares speech recognition plus LLM with a human listener\newline
-    \textbullet~Playing a turn delays the wizard's reply and widens the latency difference &
-    \textbullet~The human condition no longer reflects a real co-driver\newline
-    \textbullet~A garbled transcript can make the wizard fail on requests a person would understand, which lowers the reference \\
-    \bottomrule
-\end{longtable}
-}
+\paragraph{What the wizard receives.}
+Both assistants work from the same speech-recognition transcript; the wizard does not play the driver's audio.
+Recognition errors therefore affect both conditions alike, so differences between them reflect understanding, conversation and tool use rather than who heard the driver better, and RQ3 can compare how each assistant handles a misrecognised request.
 
 \subsection{Dependent Variables}
 
@@ -497,7 +471,7 @@ In Part~A (about an hour), the participant drives in room~1 with researcher~1 an
     \item Manipulation check, first as an open question and then as a direct one, disclosure that one assistant was a human, and the invitation to play the wizard (6\,min).
 \end{enumerate}
 
-In Part~B, which stays in room~2, the participant gives a second consent, is trained on the console by researcher~2 with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min).
+In Part~B, which stays in room~2, the participant gives a second consent, is trained on the console by researcher~2 with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min), working from the transcript only.
 If that participant meets the LLM first, the wizard watches this LLM block from room~2 before taking over (B-watch); otherwise the wizard plays without having seen the LLM (B-direct).
 Afterwards, each wizard answers a short questionnaire and is asked whether their view of the two assistants changed after playing the wizard.
 Depending on the next participant's sequence, Part~B takes 36 or 52 minutes; the last participant of each day leaves after Part~A.
@@ -524,7 +498,7 @@ The sample size follows an a-priori power analysis in G*Power for a two-tailed p
 No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
 The study targets 36 complete datasets, nine per sequence; if only 32 are reached, the detectable effect rises to $d_z = 0.52$.
 
-The main threats to validity are the simulator setting, the single model and a student-heavy sample, which limit generalisation; the latency and speech-recognition differences between conditions, which are measured and reported rather than removed; and wizard skill, which varies because each wizard serves only once and is therefore modelled rather than held constant.
+The main threats to validity are the simulator setting, the single model and a student-heavy sample, which limit generalisation; the latency difference between conditions, which is measured and reported rather than removed; and wizard skill, which varies because each wizard serves only once and is therefore modelled rather than held constant.
 
 % ══════════════════════════════════════════════════════════
 %  6  EXPECTED CONTRIBUTIONS
@@ -545,6 +519,7 @@ A null result for clear requests would itself be informative, because it would l
 The results are limited to one model, a simulator, a mainly student sample and the German language.
 The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.
 Without an English comparison condition, the thesis cannot say whether any difference between the assistants is due to German.
+Because the wizard works from the transcript, the human reference does not hear the driver as a real co-driver would.
 Whether a wizard watches the LLM first follows the next driver's sequence, so the Part~B comparison is confounded with that order and stays exploratory.
 
 % ══════════════════════════════════════════════════════════

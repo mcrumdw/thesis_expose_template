@@ -273,7 +273,7 @@ The primary objective is to \textbf{compare} a tool-using LLM assistant with a h
 Five secondary objectives support it:
 
 \begin{enumerate}
-    \item \textbf{Design} a German task set of 48 in-cabin tasks in four matched sets of 12, with ground-truth tool calls for clear, two-step, clarification-needed, missing-function and German-feature requests.
+    \item \textbf{Design} a German task set of 48 in-cabin tasks in four matched sets of 12, with ground-truth tool calls for clear, two-step, clarification-needed and missing-function requests.
     \item \textbf{Specify} the human condition as a reproducible instrument through a written wizard protocol, wizard training and a pilot.
     \item \textbf{Conduct} a within-subject driving-simulator study with 36 German-speaking drivers.
     \item \textbf{Analyse} task success, dialogue efficiency, driving behaviour and questionnaire data, and classify every LLM failure on a task the human completed.
@@ -344,7 +344,7 @@ The within-subject form removes differences in driving skill, language and attit
 Four hypotheses follow from the research questions and the lens; RQ3 is exploratory.
 
 \begin{itemize}
-    \item \textbf{H1} (RQ1): The task success rate is lower with the LLM assistant than with the human assistant, and the gap is largest for clarification-needed, missing-function and German-feature tasks.
+    \item \textbf{H1} (RQ1): The task success rate is lower with the LLM assistant than with the human assistant, and the gap is largest for clarification-needed and missing-function tasks.
     \item \textbf{H2} (RQ1): Completed tasks need more dialogue turns and more time with the LLM assistant.
     \item \textbf{H3} (RQ2): Lane keeping during tasks is less stable with the LLM assistant (higher SDLP relative to the pre-task baseline).
     \item \textbf{H4} (RQ2): After the LLM block, workload is higher and trust and perceived usability are lower than after the human block.
@@ -462,7 +462,7 @@ Table~\ref{tab:dv} operationalises each concept as a measure with its instrument
     Workload & Raw NASA-TLX after each block \cite{Hart88NASA} & Questionnaire, 0--100 & RQ2 \\
     Perceived usability & UEQ-S, pragmatic and hedonic quality, after each block \cite{Schrepp17UEQS} & Questionnaire, $-3$ to $+3$ & RQ2 \\
     Trust & Trust in Automation scale built into WorlDrive, 12 items on trust, willingness to rely and perceived safety, German translation, after each block & Questionnaire, mean of 12 items & RQ2 \\
-    Failure type & Category per LLM failure on a task the human completed, plus German feature present & Coded transcripts and tool calls & RQ3 \\
+    Failure type & Category per LLM failure on a task the human completed & Coded transcripts and tool calls & RQ3 \\
     \bottomrule
 \end{longtable}
 }
@@ -505,7 +505,7 @@ Dialogue turns and time in completed tasks are compared with paired tests on per
 A sensitivity analysis repeats the RQ1 tests without the stand-in sessions.
 SDLP, speed variation, workload, usability and trust are compared in the same way (RQ2); these five outcomes form one family and are corrected with the Holm procedure.
 All tests use $\alpha = .05$, and effect sizes are reported as $d_z$ with 95\,\% confidence intervals.
-For RQ3, two coders classify every failed LLM task by failure type and German-language feature, and agreement on a 20\,\% subset is reported as Cohen's $\kappa$ (RQ3).
+For RQ3, two coders classify every failed LLM task by failure type, and agreement on a 20\,\% subset is reported as Cohen's $\kappa$ (RQ3).
 
 The sample size follows an a-priori power analysis in G*Power for a two-tailed paired $t$-test on the primary outcome with $\alpha = .05$, power $= .80$ and $d_z = 0.5$, which yields $N = 34$.
 No study yet reports a human--LLM difference in task success, so a medium effect is assumed rather than derived.
@@ -519,18 +519,18 @@ The main threats to validity are the simulator setting, the single model and a s
 \section{Expected Contributions and Results}
 
 The scientific contribution is the first measurement of how far a tool-using LLM in-car assistant falls short of a human assistant with the same tools, obtained with German-speaking drivers while driving.
-A second contribution is a failure taxonomy that separates recognition, understanding, tool and parameter errors and links them to request types and German-language features.
+A second contribution is a failure taxonomy that separates recognition, understanding, tool and parameter errors and links them to request types.
 
 The practical contribution is a reusable German task set and wizard protocol for WorlDrive, together with the human baseline data in the WorlDrive corpus.
 From the failure analysis the thesis derives design recommendations for German-language in-car agents.
 
-It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question, ask for a missing function or contain German compounds and loanwords.
+It is expected that the LLM assistant matches the human on clear requests and falls behind on requests that need a clarifying question or ask for a missing function.
 It is further expected that these failures cost extra turns, which should show as higher workload, lower trust and, less certainly, less stable lane keeping.
 A null result for clear requests would itself be informative, because it would locate the remaining gap in dialogue management rather than in basic understanding.
 
 The results are limited to one model, a simulator, a mainly student sample and the German language.
 The human reference is a briefly trained participant, so it shows what an ordinary co-driver achieves with the same tools, not what an expert operator would.
-Without an English comparison condition, the thesis can show which failures co-occur with German features but cannot prove that German causes them.
+Without an English comparison condition, the thesis cannot say whether any difference between the assistants is due to German.
 
 % ══════════════════════════════════════════════════════════
 %  7  WORK PLAN & SCHEDULE

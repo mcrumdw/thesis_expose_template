@@ -354,7 +354,7 @@ Four hypotheses follow from the research questions and the lens; RQ3 is explorat
 
 The object of study is the in-cabin voice assistant of a passenger car, run on WorlDrive, the driving-simulator platform of the Human-Centered Intelligent Systems Lab at THI.
 WorlDrive records driving telemetry at 10\,Hz and lets the participant talk to an assistant that acts on 44 vehicle functions for climate, openings, lights, media, phone, navigation and vehicle information.
-The assistant seat is filled either by an LLM agent or by a human wizard who works in the WoZ console in a second room.
+The assistant seat is filled either by an LLM agent or by a human wizard who works in the WoZ console, so the study uses two rooms: the simulator room (room~1) and the wizard room (room~2).
 Both receive the same system prompt and the same tools, and both reply through the same text-to-speech (TTS) voice.
 This equality is what makes the human a fair reference rather than a differently briefed assistant.
 Each task has an initial cabin state, ground-truth tool calls and completion rules, from which the platform scores success automatically.
@@ -404,9 +404,9 @@ Table~\ref{tab:confounds} lists the confounds this design has to control.
 \paragraph{Who plays the wizard.}
 The wizards are the participants themselves, linked in a chain agreed with the supervisor: after driving both blocks and being debriefed, each participant plays the wizard for the next participant.
 Every wizard receives the same scripted training, a rule card and one practice task, and agrees to keep the human condition confidential before taking the console.
-The first driver of each chain has no predecessor, so a stand-in plays the wizard there and wherever a cancellation breaks the chain; whether the stand-in is the study assistant, the author or a separately recruited person is still to be decided, and these sessions are flagged in the data.
+The first driver of each chain, that is of each testing day, has no predecessor, so the author plays the wizard there and wherever a cancellation breaks the chain; these sessions are flagged in the data and left out in a sensitivity analysis.
 Almost every participant thus serves twice, once as driver and once as wizard, so 36 participants remain enough.
-Wizards never meet the driver they assist, and apart from the stand-ins none of them knows the hypotheses.
+Wizards never meet the driver they assist, and apart from the author as stand-in none of them knows the hypotheses.
 In return, the human condition represents an ordinary German-speaking co-driver after a short training rather than an expert operator, and wizard skill varies between sessions.
 Following the reporting guidelines for Wizard-of-Oz studies, the thesis states who the wizards were, how they were trained and what they knew~\cite{Riek12Wizard}.
 
@@ -496,8 +496,8 @@ In Part~A (about 60\,min), the participant drives:
 In Part~B, the participant gives a second consent, is trained on the console with a fixed script and one practice task (10\,min), and plays the wizard during the human block of the next participant (12\,min).
 Depending on that participant's sequence, Part~B takes 36 or 52 minutes; the last participant of each day leaves after Part~A.
 Participants are told they will test two versions of the assistant, and the wizard works in a second room.
-The experimenter is not blind to the condition, which the protocol limits by fixed instructions.
-The author leads the sessions, interviews and debriefings, and a German-speaking student assistant runs the WorlDrive backend and the wizard room.
+Neither researcher is blind to the condition, which the protocol limits by fixed instructions; whether researcher~1 can be kept unaware of the block order is checked in the pilot.
+Two researchers run every session in fixed roles: researcher~1, a German-speaking student assistant provided by the supervisor, runs room~1 with the welcome, both drives and the questionnaires; researcher~2, the author, runs room~2, where he interviews and debriefs each participant, trains and supervises the participant wizards and plays the wizard for the first driver of each day.
 A pilot with three to four people checks timing, whether 12 tasks fit into one block, whether the four task sets are equally hard, task scoring and wizard consistency before data collection.
 
 Data collection starts after approval by the ethics committee.
